@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myfirstandroidchallenge.databinding.FragmentFirstBinding
@@ -25,6 +27,7 @@ class FirstFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var binding: FragmentFirstBinding
+    private lateinit var productListAdaptor: ProductListAdaptor
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -35,9 +38,8 @@ class FirstFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
         binding = FragmentFirstBinding.inflate(inflater, container, false)
 
         return binding.root
@@ -45,14 +47,17 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
-        val rvProducts = binding.rvProductList;
+        val rvProducts: RecyclerView = binding.rvProductList
+        productListAdaptor = ProductListAdaptor(activity)
         rvProducts.layoutManager = LinearLayoutManager(activity)
-        rvProducts.adapter = ProductListAdaptor(activity)
+        rvProducts.adapter = productListAdaptor
 
+        val viewModel = ViewModelProvider(this)[ProductsViewModel::class.java]
+        viewModel.getProducts()
+        viewModel.observeProductLiveData().observe(viewLifecycleOwner) { productList ->
+            productListAdaptor.setProductList(productList)
+        }
     }
-
 
     companion object {
         /**
@@ -65,12 +70,11 @@ class FirstFragment : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FirstFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+        fun newInstance(param1: String, param2: String) = FirstFragment().apply {
+            arguments = Bundle().apply {
+                putString(ARG_PARAM1, param1)
+                putString(ARG_PARAM2, param2)
             }
+        }
     }
 }
