@@ -4,6 +4,7 @@ import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.annotation.concurrent.Immutable
 import javax.inject.Inject
 
 @HiltViewModel
@@ -14,7 +15,9 @@ class ProductsViewModel @Inject constructor(private val productRepository: Produ
      * A state holder for loading, loaded, error and empty states
      */
     private val _productLoadStates = MutableLiveData<ProductLoadStates>()
-    val productLoadStates = _productLoadStates
+
+    // expose an immutable live data
+    val productLoadStates: LiveData<ProductLoadStates> = _productLoadStates
 
     /// When view is ready, get products
     fun onViewCreated() {
@@ -23,13 +26,13 @@ class ProductsViewModel @Inject constructor(private val productRepository: Produ
 
     /// Get products from service
     private fun getProducts() {
-        productLoadStates.postValue(ProductLoadStates.Loading)
+        _productLoadStates.postValue(ProductLoadStates.Loading)
         viewModelScope.launch(context = Dispatchers.IO) {
             val data = productRepository.getProducts()
-            if (!data.data?.productItems.isNullOrEmpty()) {
-                productLoadStates.postValue(ProductLoadStates.Loaded(data.data?.productItems!!))
+            if (!data?.data?.productItems.isNullOrEmpty()) {
+                _productLoadStates.postValue(ProductLoadStates.Loaded(data?.data?.productItems!!))
             } else {
-                productLoadStates.postValue(ProductLoadStates.EmptyOrError("Failed to load or products not found"))
+                _productLoadStates.postValue(ProductLoadStates.EmptyOrError("Failed to load or products not found"))
             }
         }
     }
