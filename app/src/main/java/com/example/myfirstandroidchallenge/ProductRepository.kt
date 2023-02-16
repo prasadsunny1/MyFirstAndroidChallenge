@@ -50,7 +50,7 @@ class ProductRepository
         val isAnyOfTheCachedProductsExpired = allProducts.any {
             (System.currentTimeMillis() - it.timestamp) > cacheExpiryTimeInMills
         }
-        return if (isAnyOfTheCachedProductsExpired || forceInvalidateCatchAndReFetch) {
+        return if (isAnyOfTheCachedProductsExpired || allProducts.isEmpty() || forceInvalidateCatchAndReFetch) {
             productDatabaseService.productDao().delete(*allProducts.toTypedArray())
             getProductsFromApiAndCache()
         } else {
