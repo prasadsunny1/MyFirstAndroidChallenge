@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -47,15 +46,56 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val viewModel = ViewModelProvider(this)[ProductsViewModel::class.java]
+        viewModel.getProducts()
+
+
         val rvProducts: RecyclerView = binding.rvProductList
         productListAdaptor = ProductListAdaptor(activity)
         rvProducts.layoutManager = LinearLayoutManager(activity)
         rvProducts.adapter = productListAdaptor
 
-        val viewModel = ViewModelProvider(this)[ProductsViewModel::class.java]
-        viewModel.getProducts()
-        viewModel.observeProductLiveData().observe(viewLifecycleOwner) { productList ->
-            productListAdaptor.setProductList(productList)
+
+        // Observe loaded state changes and update the UI
+        viewModel.productLoadStates.observe(viewLifecycleOwner) { abc ->
+            updateUI(abc)
+        }
+    }
+
+    private fun updateUI(value: ProductLoadStates?) {
+        when (value) {
+            ProductLoadStates.Loading -> {
+                // Show loading indicator
+                binding.circularLoaderView.visibility = View.VISIBLE
+                binding.tvDataEmptyView.visibility = View.GONE
+                binding.rvProductList.visibility = View.GONE
+            }
+            is ProductLoadStates.Loaded -> {
+                // Hide loading indicator
+                // Update UI
+                binding.circularLoaderView.visibility = View.GONE
+                binding.tvDataEmptyView.visibility = View.GONE
+                binding.rvProductList.visibility = View.VISIBLE
+                productListAdaptor.setProductList(value.products)
+
+            }
+            is ProductLoadStates.EmptyOrError -> {
+                // Hide loading indicator
+                // Show error message
+                binding.circularLoaderView.visibility = View.GONE
+                binding.tvDataEmptyView.visibility = View.VISIBLE
+                binding.rvProductList.visibility = View.GONE
+                binding.tvDataEmptyView.text = value.message
+            }
+            else -> {
+                // Hide loading indicator
+                // Show error message
+                binding.circularLoaderView.visibility = View.GONE
+                binding.tvDataEmptyView.visibility = View.VISIBLE
+                binding.rvProductList.visibility = View.GONE
+                binding.tvDataEmptyView.text = "Something went wrong while loading products"
+
+            }
         }
     }
 
