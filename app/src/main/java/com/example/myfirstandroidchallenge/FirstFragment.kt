@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -46,15 +47,13 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val viewModel = ViewModelProvider(this)[ProductsViewModel::class.java]
-        viewModel.getProducts()
-
+        val viewModel: ProductsViewModel by viewModels()
+        viewModel.onViewCreated()
 
         val rvProducts: RecyclerView = binding.rvProductList
         productListAdaptor = ProductListAdaptor(activity)
         rvProducts.layoutManager = LinearLayoutManager(activity)
         rvProducts.adapter = productListAdaptor
-
 
         // Observe loaded state changes and update the UI
         viewModel.productLoadStates.observe(viewLifecycleOwner) { abc ->

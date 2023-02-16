@@ -5,7 +5,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ProductsViewModel() : ViewModel() {
-    
+
     private var productRepository: ProductRepository
 
     // A state holder for loading, loaded, error and empty states
@@ -17,9 +17,13 @@ class ProductsViewModel() : ViewModel() {
         productRepository = ProductRepository(productService)
     }
 
+    /// When view is ready, get products
+    fun onViewCreated() {
+        getProducts()
+    }
 
     /// Get products from service
-    fun getProducts() {
+    private fun getProducts() {
         productLoadStates.postValue(ProductLoadStates.Loading)
         viewModelScope.launch(context = Dispatchers.IO) {
             val data = productRepository.getProducts()
