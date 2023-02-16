@@ -34,6 +34,11 @@ class FirstFragment : Fragment() {
         rvProducts.layoutManager = LinearLayoutManager(activity)
         rvProducts.adapter = productListAdaptor
 
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            productsViewModel.refreshProducts()
+            binding.swipeRefreshLayout.isRefreshing = false
+        }
+
         // Observe loaded state changes and update the UI
         productsViewModel.productLoadStates.observe(viewLifecycleOwner) { abc ->
             updateUI(abc)
