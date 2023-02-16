@@ -1,21 +1,18 @@
 package com.example.myfirstandroidchallenge
 
 import androidx.lifecycle.*
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ProductsViewModel() : ViewModel() {
-
-    private var productRepository: ProductRepository
+@HiltViewModel
+class ProductsViewModel @Inject constructor() :
+    ViewModel() {
 
     // A state holder for loading, loaded, error and empty states
     private val _productLoadStates = MutableLiveData<ProductLoadStates>()
     val productLoadStates = _productLoadStates
-
-    init {
-        val productService = ProductService.create()
-        productRepository = ProductRepository(productService)
-    }
 
     /// When view is ready, get products
     fun onViewCreated() {
@@ -24,6 +21,8 @@ class ProductsViewModel() : ViewModel() {
 
     /// Get products from service
     private fun getProducts() {
+        val productService: ProductService = ProductService.create()
+        val productRepository: ProductRepository = ProductRepository(productService)
         productLoadStates.postValue(ProductLoadStates.Loading)
         viewModelScope.launch(context = Dispatchers.IO) {
             val data = productRepository.getProducts()

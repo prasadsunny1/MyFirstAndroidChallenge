@@ -5,8 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myfirstandroidchallenge.databinding.FragmentFirstBinding
@@ -26,6 +25,8 @@ class FirstFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private val productsViewModel: ProductsViewModel by activityViewModels()
     private lateinit var binding: FragmentFirstBinding
     private lateinit var productListAdaptor: ProductListAdaptor
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,8 +48,8 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val viewModel: ProductsViewModel by viewModels()
-        viewModel.onViewCreated()
+//        val productsViewModel: ProductsViewModel by viewModels()
+        productsViewModel.onViewCreated()
 
         val rvProducts: RecyclerView = binding.rvProductList
         productListAdaptor = ProductListAdaptor(activity)
@@ -56,7 +57,7 @@ class FirstFragment : Fragment() {
         rvProducts.adapter = productListAdaptor
 
         // Observe loaded state changes and update the UI
-        viewModel.productLoadStates.observe(viewLifecycleOwner) { abc ->
+        productsViewModel.productLoadStates.observe(viewLifecycleOwner) { abc ->
             updateUI(abc)
         }
     }
