@@ -28,9 +28,10 @@ class ProductsViewModel @Inject constructor(private val productRepository: Produ
     private fun getProducts() {
         _productLoadStates.postValue(ProductLoadStates.Loading)
         viewModelScope.launch(context = Dispatchers.IO) {
-            val data = productRepository.getProducts()
-            if (!data?.data?.productItems.isNullOrEmpty()) {
-                _productLoadStates.postValue(ProductLoadStates.Loaded(data?.data?.productItems!!))
+            val productItems =
+                productRepository.getAllProductsWithReFetchIfNeeded(forceInvalidateCatchAndReFetch = false)
+            if (!productItems.isNullOrEmpty()) {
+                _productLoadStates.postValue(ProductLoadStates.Loaded(productItems))
             } else {
                 _productLoadStates.postValue(ProductLoadStates.EmptyOrError("Failed to load or products not found"))
             }

@@ -1,8 +1,11 @@
 package com.example.myfirstandroidchallenge
 
+import android.content.Context
+import com.example.myfirstandroidchallenge.database.ProductDatabaseService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -12,4 +15,11 @@ class AppModule {
     @Provides
     @Singleton
     fun provideRetrofitInstance() = ProductService.create()
+
+    @Provides
+    @Singleton
+    fun provideDatabaseServiceInstance(@ApplicationContext context: Context) =
+        ProductDatabaseService.create(context);
+
+
 }
