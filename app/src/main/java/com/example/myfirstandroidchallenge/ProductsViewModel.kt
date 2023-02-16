@@ -1,37 +1,34 @@
 package com.example.myfirstandroidchallenge
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.example.myfirstandroidchallenge.models.ProductItem
+import androidx.lifecycle.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ProductsViewModel() : ViewModel() {
-
-
-    //    var products: ProductDTO? = null
-    private var productsLiveData = MutableLiveData<List<ProductItem>>()
+    
     private var productRepository: ProductRepository
 
+    // A state holder for loading, loaded, error and empty states
+    private val _productLoadStates = MutableLiveData<ProductLoadStates>()
+    val productLoadStates = _productLoadStates
 
     init {
         val productService = ProductService.create()
         productRepository = ProductRepository(productService)
     }
 
+
     /// Get products from service
-     fun getProducts() {
+    fun getProducts() {
+        productLoadStates.postValue(ProductLoadStates.Loading)
         viewModelScope.launch(context = Dispatchers.IO) {
             val data = productRepository.getProducts()
             if (!data.data?.productItems.isNullOrEmpty()) {
-                productsLiveData.postValue(data.data?.productItems!!)
+                productLoadStates.postValue(ProductLoadStates.Loaded(data.data?.productItems!!))
+            } else {
+                productLoadStates.postValue(ProductLoadStates.EmptyOrError("Failed to load or products not found"))
             }
         }
     }
 
-    fun observeProductLiveData(): LiveData<List<ProductItem>> {
-        return productsLiveData
-    }
 }
