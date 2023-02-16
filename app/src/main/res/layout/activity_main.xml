@@ -7,6 +7,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
     <include
         android:id="@+id/header_section_layout"
         layout="@layout/header_section_layout"

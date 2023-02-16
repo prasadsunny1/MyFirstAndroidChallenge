@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".FirstFragment">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvProductList"
         android:layout_width="match_parent"
