@@ -22,7 +22,7 @@ class ProductsViewModel @Inject constructor() :
     /// Get products from service
     private fun getProducts() {
         val productService: ProductService = ProductService.create()
-        val productRepository: ProductRepository = ProductRepository(productService)
+        val productRepository = ProductRepository(productService)
         productLoadStates.postValue(ProductLoadStates.Loading)
         viewModelScope.launch(context = Dispatchers.IO) {
             val data = productRepository.getProducts()

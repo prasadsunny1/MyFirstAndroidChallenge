@@ -1,7 +1,6 @@
 package com.example.myfirstandroidchallenge
 
 import com.example.myfirstandroidchallenge.models.ProductDTO
-import com.fasterxml.jackson.databind.annotation.JacksonStdImpl
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.jackson.JacksonConverterFactory
@@ -14,7 +13,7 @@ interface ProductService {
             val retrofit = Retrofit.Builder().addConverterFactory(
                 JacksonConverterFactory.create()
             ).baseUrl("https://run.mocky.io/v3/").build()
-            return retrofit.create(ProductService::class.java);
+            return retrofit.create(ProductService::class.java)
         }
     }
 

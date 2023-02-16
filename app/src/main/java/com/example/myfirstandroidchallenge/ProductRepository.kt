@@ -6,8 +6,7 @@ class ProductRepository
     (productService: ProductService) {
 
     private var _productService: ProductService = productService
-
-
+    
     // Get products from service and return product or throw error
     fun getProducts(): ProductDTO {
         val response = _productService.getProducts().execute()
