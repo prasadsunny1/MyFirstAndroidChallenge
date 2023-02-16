@@ -7,10 +7,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ProductsViewModel @Inject constructor() :
+class ProductsViewModel @Inject constructor(private val productRepository: ProductRepository) :
     ViewModel() {
 
-    // A state holder for loading, loaded, error and empty states
+    /**
+     * A state holder for loading, loaded, error and empty states
+     */
     private val _productLoadStates = MutableLiveData<ProductLoadStates>()
     val productLoadStates = _productLoadStates
 
@@ -21,8 +23,6 @@ class ProductsViewModel @Inject constructor() :
 
     /// Get products from service
     private fun getProducts() {
-        val productService: ProductService = ProductService.create()
-        val productRepository = ProductRepository(productService)
         productLoadStates.postValue(ProductLoadStates.Loading)
         viewModelScope.launch(context = Dispatchers.IO) {
             val data = productRepository.getProducts()
