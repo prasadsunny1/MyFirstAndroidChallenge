@@ -1,8 +1,6 @@
 package com.example.myfirstandroidchallenge
 
 import com.example.myfirstandroidchallenge.models.ProductDTO
-import retrofit2.Retrofit
-import retrofit2.converter.jackson.JacksonConverterFactory
 
 class ProductRepository
     (productService: ProductService) {
