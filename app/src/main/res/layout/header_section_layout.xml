@@ -3,68 +3,78 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="#E6E9F6">
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_margin="16dp"
-        android:layout_weight="1"
-        android:gravity="start"
-        android:text="Explore"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/explore_label_header"
+        android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_margin="16dp"
-        android:layout_weight="1"
-        android:gravity="end"
-        android:text="Filter"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/filter_label_header"
+        android:textColor="#5DB075"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2">
-        <!--A search box with rounded corners -->
+        <!--A search box with rounded corners, and no outline, no floating hint text, white background-->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilSearch"
+            android:id="@+id/textInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:gravity="center_vertical"
-            app:boxBackgroundMode="outline"
-            app:boxCornerRadiusBottomEnd="80dp"
-            app:boxCornerRadiusBottomStart="80dp"
-            app:boxCornerRadiusTopEnd="80dp"
-            app:boxCornerRadiusTopStart="80dp"
-            app:boxStrokeWidth="1dp">
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_corner"
+            android:padding="8dp"
+            app:boxBackgroundColor="#FFFFFF"
+            app:boxBackgroundMode="filled"
+
+            app:boxStrokeColor="#FFFFFF"
+            app:boxStrokeWidth="0dp"
+            app:hintEnabled="false"
+            app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:hintTextColor="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etSearch"
+                android:id="@+id/textInputEditText"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:hint="Input to search products"
-                android:imeOptions="actionSearch"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="@string/header_textfield_hint"
                 android:inputType="text"
                 android:padding="8dp"
-                android:textSize="16sp" />
-
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
