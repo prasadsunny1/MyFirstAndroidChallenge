@@ -19,7 +19,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -31,7 +30,6 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -53,7 +51,6 @@
             android:padding="8dp"
             app:boxBackgroundColor="#FFFFFF"
             app:boxBackgroundMode="filled"
-
             app:boxStrokeColor="#FFFFFF"
             app:boxStrokeWidth="0dp"
             app:hintEnabled="false"
