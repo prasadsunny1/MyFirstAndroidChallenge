@@ -13,10 +13,12 @@
         android:id="@+id/thirdFragment"
         android:icon="@drawable/bottom_nav_icon"
         android:title="@null" />
-<!--    <item-->
-<!--        android:id="@+id/fourthFragment"-->
-<!--        android:title="@null" />-->
-<!--    <item-->
-<!--        android:id="@+id/fifthFragment"-->
-<!--        android:title="@null" />-->
+    <item
+        android:id="@+id/fourthFragment"
+        android:icon="@drawable/bottom_nav_icon"
+        android:title="@null" />
+    <item
+        android:id="@+id/fifthFragment"
+        android:icon="@drawable/bottom_nav_icon"
+        android:title="@null" />
 </menu>
