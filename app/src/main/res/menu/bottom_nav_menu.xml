@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/firstFragment"
+        android:id="@+id/productListFragment"
         android:icon="@drawable/bottom_nav_icon"
         android:title="@null" />
     <item
-        android:id="@+id/secondFragment"
+        android:id="@+id/productGridFragment"
         android:icon="@drawable/bottom_nav_icon"
         android:title="@null" />
     <item

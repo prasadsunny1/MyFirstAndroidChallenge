@@ -67,4 +67,11 @@ class ProductRepository
             }
         }
     }
+
+
+    // Function to get products from API and convert them to ProductItemDO
+
+    // Function to get products from DB and convert them to ProductItemDO
+
+    // Function to save productItemDO to DB
 }

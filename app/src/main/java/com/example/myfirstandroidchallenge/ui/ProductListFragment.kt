@@ -6,24 +6,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myfirstandroidchallenge.R
 import com.example.myfirstandroidchallenge.view_model.ProductLoadStates
 import com.example.myfirstandroidchallenge.view_model.ProductsViewModel
-import com.example.myfirstandroidchallenge.databinding.FragmentSecondBinding
+import com.example.myfirstandroidchallenge.databinding.FragmentProductListBinding
 
-class SecondFragment : Fragment() {
+class ProductListFragment : Fragment() {
 
     private val productsViewModel: ProductsViewModel by activityViewModels()
-    private lateinit var binding: FragmentSecondBinding
+    private lateinit var binding: FragmentProductListBinding
     private lateinit var productListAdaptor: ProductListAdaptor
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        binding = FragmentSecondBinding.inflate(inflater, container, false)
+        binding = FragmentProductListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -32,9 +30,9 @@ class SecondFragment : Fragment() {
         productsViewModel.onViewCreated()
 
         val rvProducts: RecyclerView = binding.rvProductList
-        productListAdaptor = ProductListAdaptor(activity, ProductListKind.Grid)
+        productListAdaptor = ProductListAdaptor(activity)
 
-        rvProducts.layoutManager = GridLayoutManager(activity, 3)
+        rvProducts.layoutManager = LinearLayoutManager(activity)
         rvProducts.adapter = productListAdaptor
 
         binding.swipeRefreshLayout.setOnRefreshListener {
@@ -79,7 +77,7 @@ class SecondFragment : Fragment() {
                 binding.circularLoaderView.visibility = View.GONE
                 binding.tvDataEmptyView.visibility = View.VISIBLE
                 binding.rvProductList.visibility = View.GONE
-                binding.tvDataEmptyView.text = getString(R.string.product_load_failed_message)
+                binding.tvDataEmptyView.text = "Something went wrong while loading products"
 
             }
         }
