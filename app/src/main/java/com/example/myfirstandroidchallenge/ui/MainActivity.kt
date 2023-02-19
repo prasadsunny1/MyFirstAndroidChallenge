@@ -26,9 +26,7 @@ class MainActivity @Inject constructor() : AppCompatActivity() {
 
         val editTextSearch = findViewById<TextInputEditText>(R.id.editTextSearch)
         editTextSearch.doAfterTextChanged { text ->
-            // call search function on Product view model
             productsViewModel.searchProducts(text.toString())
-
         }
     }
 

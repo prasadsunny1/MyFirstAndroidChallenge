@@ -11,15 +11,17 @@ import javax.inject.Inject
 class ProductsViewModel @Inject constructor(private val productRepository: ProductRepository) :
     ViewModel() {
 
+
+    private val _productLoadStates = MutableLiveData<ProductLoadStates>()
+
     /**
      * A state holder for loading, loaded, error and empty states
      */
-    private val _productLoadStates = MutableLiveData<ProductLoadStates>()
-
-    // expose an immutable live data
     val productLoadStates: LiveData<ProductLoadStates> = _productLoadStates
 
-    /// When view is ready, get products
+    /**
+     * When view is ready, load products
+     */
     fun onViewCreated() {
         getProducts()
     }

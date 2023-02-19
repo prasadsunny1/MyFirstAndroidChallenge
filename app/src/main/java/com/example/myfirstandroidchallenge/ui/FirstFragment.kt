@@ -22,7 +22,6 @@ class FirstFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentFirstBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
@@ -32,6 +31,7 @@ class FirstFragment : Fragment() {
 
         val rvProducts: RecyclerView = binding.rvProductList
         productListAdaptor = ProductListAdaptor(activity)
+
         rvProducts.layoutManager = LinearLayoutManager(activity)
         rvProducts.adapter = productListAdaptor
 
@@ -41,8 +41,8 @@ class FirstFragment : Fragment() {
         }
 
         // Observe loaded state changes and update the UI
-        productsViewModel.productLoadStates.observe(viewLifecycleOwner) { abc ->
-            updateUI(abc)
+        productsViewModel.productLoadStates.observe(viewLifecycleOwner) { productLoadState ->
+            updateUI(productLoadState)
         }
     }
 
