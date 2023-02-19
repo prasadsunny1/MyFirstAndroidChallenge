@@ -26,14 +26,17 @@ interface ProductDAO {
     /**
      * Search for a product by name
      */
-    @Query("SELECT * FROM product_table WHERE name LIKE :name")
-    fun searchAllProductsByName(name: String): ProductEntity
+    @Query("SELECT * FROM product_table WHERE name LIKE '%' || :name || '%'")
+    fun searchAllProductsByName(name: String): List<ProductEntity>
 
     /**
      * Search for a product by name and sort by the given column
      */
-    @Query("SELECT * FROM product_table WHERE name LIKE :name ORDER BY :sortedBy")
-    fun searchAllProductsByName(name: String, sortedBy: ProductEntityColumnNames): ProductEntity
+    @Query("SELECT * FROM product_table WHERE name LIKE '%' || :name || '%' ORDER BY :sortedBy")
+    fun searchAllProductsByName(
+        name: String,
+        sortedBy: ProductEntityColumnNames
+    ): List<ProductEntity>
 
     /**
      * Insert a product
