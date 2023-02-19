@@ -2,19 +2,19 @@ package com.example.myfirstandroidchallenge.repository
 
 import com.example.myfirstandroidchallenge.data_sources.database.ProductDatabase
 import com.example.myfirstandroidchallenge.data_sources.database.ProductEntity
-import com.example.myfirstandroidchallenge.data_sources.network.ProductService
+import com.example.myfirstandroidchallenge.data_sources.network.ProductAPIService
 import com.example.myfirstandroidchallenge.data_sources.network.ProductItem
 import javax.inject.Inject
 
 class ProductRepository
 @Inject constructor(
-    private val productService: ProductService,
+    private val productAPIService: ProductAPIService,
     private val productDatabaseService: ProductDatabase,
 ) {
 
     // Get products from service and return product or throw error
     private fun getProductsFromApiAndCache(): List<ProductItem>? {
-        val response = productService.getProducts().execute()
+        val response = productAPIService.getProducts().execute()
         if (response.errorBody() != null) {
             return null
         } else {
