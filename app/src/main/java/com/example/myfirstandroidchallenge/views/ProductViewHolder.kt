@@ -1,17 +1,21 @@
 package com.example.myfirstandroidchallenge.views
 
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myfirstandroidchallenge.R
 
 class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    var productTitle: TextView = itemView.findViewById(R.id.tvTitle)
-    var productSubtitle: TextView = itemView.findViewById(R.id.tvSubtitle)
+    var tvProductName: TextView = itemView.findViewById(R.id.tvProductName)
+    var tvProductPrice: TextView = itemView.findViewById(R.id.tvProductPrice)
+    var tvProductExtraInfo: TextView = itemView.findViewById(R.id.tvProductExtraInfo)
+    var tvProductImage: ImageView = itemView.findViewById(R.id.imgViewProductImage)
 
     init {
-        productTitle = itemView.findViewById(R.id.tvTitle)
-        productTitle = itemView.findViewById(R.id.tvTitle)
-        productSubtitle = itemView.findViewById(R.id.tvSubtitle)
+        tvProductName = itemView.findViewById(R.id.tvProductName)
+        tvProductPrice = itemView.findViewById(R.id.tvProductPrice)
+        tvProductExtraInfo = itemView.findViewById(R.id.tvProductExtraInfo)
+        tvProductImage = itemView.findViewById(R.id.imgViewProductImage)
     }
 }

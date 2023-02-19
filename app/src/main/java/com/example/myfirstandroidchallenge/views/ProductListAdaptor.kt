@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.myfirstandroidchallenge.R
 import com.example.myfirstandroidchallenge.models.ProductItem
 
@@ -27,8 +28,12 @@ class ProductListAdaptor(private val context: Context? = null) :
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
-        holder.productTitle.text = productList[position].name
-        holder.productSubtitle.text = productList[position].price
+        holder.tvProductName.text = productList[position].name
+        holder.tvProductPrice.text = productList[position].price
+        holder.tvProductExtraInfo.text = productList[position].extra
+        if (context != null) {
+            Glide.with(context).load(productList[position].image).into(holder.tvProductImage)
+        }
     }
 
     override fun getItemCount(): Int {

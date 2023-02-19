@@ -2,4 +2,8 @@
     <string name="app_name">MyFirstAndroidChallenge</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="explore_label_header">Explore</string>
+    <string name="filter_label_header">Filter</string>
+    <string name="header_textfield_hint">Input to search products</string>
+    <string name="product_image_content_description">Product Image</string>
 </resources>
