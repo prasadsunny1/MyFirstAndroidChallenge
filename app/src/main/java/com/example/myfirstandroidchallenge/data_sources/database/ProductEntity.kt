@@ -14,6 +14,3 @@ data class ProductEntity(
     @ColumnInfo val timestamp: Long = System.currentTimeMillis()
 )
 
-fun add() {
-}
-
