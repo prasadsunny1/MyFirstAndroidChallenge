@@ -5,10 +5,35 @@
     android:layout_height="match_parent"
     tools:context=".ui.SecondFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/tvDataEmptyView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        tools:text="Empty view"
+        tools:visibility="visible" />
 
+
+    <ProgressBar
+        android:id="@+id/circularLoaderView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvProductList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            tools:listitem="@layout/product_list_item"
+            tools:visibility="visible" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </FrameLayout>
