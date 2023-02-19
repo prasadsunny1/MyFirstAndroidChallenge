@@ -7,15 +7,18 @@ import androidx.room.RoomDatabase
 
 @Database(entities = [ProductEntity::class], version = 1)
 abstract class ProductDatabase : RoomDatabase() {
+
     abstract fun productDao(): ProductDAO
 
     companion object Factory {
+        /**
+         * Create a room db instance of [ProductDatabase]
+         */
         fun create(applicationContext: Context): ProductDatabase {
             return Room.databaseBuilder(
                 applicationContext, ProductDatabase::class.java, "database-name"
             ).build()
         }
     }
-
 }
 
