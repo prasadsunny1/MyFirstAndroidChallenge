@@ -3,6 +3,7 @@ package com.example.myfirstandroidchallenge.repository
 import com.example.myfirstandroidchallenge.AppConstants
 import com.example.myfirstandroidchallenge.data_sources.database.ProductDatabase
 import com.example.myfirstandroidchallenge.data_sources.database.ProductEntity
+import com.example.myfirstandroidchallenge.data_sources.database.ProductEntityColumnNames
 import com.example.myfirstandroidchallenge.data_sources.network.ProductAPIService
 import com.example.myfirstandroidchallenge.data_sources.network.ProductItem
 import javax.inject.Inject
@@ -15,6 +16,7 @@ class ProductRepository
 
     // Get products from service and return product or throw error
     private fun getProductsFromApiAndCache(): List<ProductItem>? {
+
         val response = productAPIService.getProducts().execute()
         if (response.errorBody() != null) {
             return null
@@ -26,13 +28,7 @@ class ProductRepository
 
     private fun saveProductsToDB(products: List<ProductItem>?) {
         val productEntities: List<ProductEntity>? = products?.map { product ->
-            ProductEntity(
-                id = product.hashCode(),
-                name = product.name ?: "",
-                price = product.price ?: "",
-                extra = product.extra ?: "",
-                image = product.image ?: "",
-            )
+            ApiDtoToDBEntity.map(product)
         }
         productEntities?.toTypedArray()
             ?.let { productDatabaseService.productDao().insertAllProducts(*it) }
@@ -46,32 +42,45 @@ class ProductRepository
      */
     fun getAllProductsWithReFetchIfNeeded(
         forceInvalidateCatchAndReFetch: Boolean = false,
-        cacheExpiryTimeInMills: Int = AppConstants.ONE_DAY_IN_MILLIS,
-    ): List<ProductItem>? {
-        val allProducts = productDatabaseService.productDao().getAllProducts()
-        // This is cache expiry time
-        val isAnyOfTheCachedProductsExpired = allProducts.any {
-            (System.currentTimeMillis() - it.timestamp) > cacheExpiryTimeInMills
-        }
-        return if (isAnyOfTheCachedProductsExpired || allProducts.isEmpty() || forceInvalidateCatchAndReFetch) {
-            productDatabaseService.productDao().delete(*allProducts.toTypedArray())
+        cacheExpiryTimeInMills: Int? = null,
+        searchKeyword: String? = null,
+    ): List<ProductDO>? {
+        var resultProducts = getProductsFromDB(searchKeyword = searchKeyword)
+        val isAnyOfTheCachedProductsExpired = isAnyOfTheCachedProductsExpired(
+            resultProducts, cacheExpiryTimeInMills ?: AppConstants.ONE_DAY_IN_MILLIS
+        )
+
+        if (isAnyOfTheCachedProductsExpired || resultProducts.isEmpty() || forceInvalidateCatchAndReFetch) {
+            productDatabaseService.productDao().delete(*resultProducts.toTypedArray())
             getProductsFromApiAndCache()
-        } else {
-            allProducts.map {
-                ProductItem(
-                    name = it.name,
-                    price = it.price,
-                    extra = it.extra,
-                    image = it.image,
-                )
-            }
+            resultProducts = getProductsFromDB(searchKeyword = searchKeyword)
+        }
+        return resultProducts.map {
+            DbEntityToDo.map(it)
+
         }
     }
 
+    private fun isAnyOfTheCachedProductsExpired(
+        products: List<ProductEntity>, cacheExpiryTimeInMills: Int = AppConstants.ONE_DAY_IN_MILLIS
+    ): Boolean {
+        val isAnyOfTheCachedProductsExpired = products.any {
+            (System.currentTimeMillis() - it.timestamp) > cacheExpiryTimeInMills
+        }
+        return isAnyOfTheCachedProductsExpired
+    }
 
-    // Function to get products from API and convert them to ProductItemDO
+    private fun getProductsFromDB(searchKeyword: String? = null): List<ProductEntity> {
 
-    // Function to get products from DB and convert them to ProductItemDO
+        var allProducts = if (searchKeyword.isNullOrEmpty()) {
+            productDatabaseService.productDao().getAllProducts(ProductEntityColumnNames.NAME)
 
-    // Function to save productItemDO to DB
+        } else {
+            productDatabaseService.productDao()
+                .searchAllProductsByName(searchKeyword, ProductEntityColumnNames.NAME)
+        }
+
+        return allProducts
+    }
+
 }

@@ -11,15 +11,16 @@ import com.example.myfirstandroidchallenge.R
 import com.example.myfirstandroidchallenge.data_sources.network.ProductItem
 import com.example.myfirstandroidchallenge.databinding.ProductGridItemBinding
 import com.example.myfirstandroidchallenge.databinding.ProductListItemBinding
+import com.example.myfirstandroidchallenge.repository.ProductDO
 
 class ProductListAdaptor(
     private val context: Context? = null,
     private val productListKind: ProductListKind = ProductListKind.Linear
 ) : RecyclerView.Adapter<ProductViewHolder>() {
-    private var productList: List<ProductItem> = listOf()
+    private var productList: List<ProductDO> = listOf()
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setProductList(newList: List<ProductItem>) {
+    fun setProductList(newList: List<ProductDO>) {
         productList = newList
         // Notify the adapter that the data has changed
         notifyDataSetChanged()

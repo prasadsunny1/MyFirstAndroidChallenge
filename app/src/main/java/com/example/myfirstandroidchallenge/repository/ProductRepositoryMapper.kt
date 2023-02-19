@@ -53,3 +53,15 @@ object DoToDbEntity : BaseMapper<ProductDO, ProductEntity> {
     }
 }
 
+object ApiDtoToDBEntity : BaseMapper<ProductItem, ProductEntity> {
+    override fun map(type: ProductItem?): ProductEntity {
+        return ProductEntity(
+            price = type?.price ?: "",
+            name = type?.name ?: "",
+            extra = type?.extra ?: "",
+            image = type?.image ?: "",
+            id = type?.hashCode() ?: 0,
+        )
+    }
+}
+

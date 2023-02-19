@@ -31,7 +31,10 @@ class ProductsViewModel @Inject constructor(private val productRepository: Produ
         _productLoadStates.postValue(ProductLoadStates.Loading)
         viewModelScope.launch(context = Dispatchers.IO) {
             val productItems =
-                productRepository.getAllProductsWithReFetchIfNeeded(forceInvalidateCatchAndReFetch = userInitiateRefresh)
+                productRepository.getAllProductsWithReFetchIfNeeded(
+                    forceInvalidateCatchAndReFetch = userInitiateRefresh,
+                    searchKeyword = searchKeyword
+                )
             if (!productItems.isNullOrEmpty()) {
                 _productLoadStates.postValue(ProductLoadStates.Loaded(productItems))
 
