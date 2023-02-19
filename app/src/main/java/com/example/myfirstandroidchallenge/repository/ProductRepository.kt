@@ -1,5 +1,6 @@
 package com.example.myfirstandroidchallenge.repository
 
+import com.example.myfirstandroidchallenge.AppConstants
 import com.example.myfirstandroidchallenge.data_sources.database.ProductDatabase
 import com.example.myfirstandroidchallenge.data_sources.database.ProductEntity
 import com.example.myfirstandroidchallenge.data_sources.network.ProductAPIService
@@ -45,7 +46,7 @@ class ProductRepository
      */
     fun getAllProductsWithReFetchIfNeeded(
         forceInvalidateCatchAndReFetch: Boolean = false,
-        cacheExpiryTimeInMills: Int = 1000 * 24 * 3600
+        cacheExpiryTimeInMills: Int = AppConstants.ONE_DAY_IN_MILLIS,
     ): List<ProductItem>? {
         val allProducts = productDatabaseService.productDao().getAllProducts()
         // This is cache expiry time
