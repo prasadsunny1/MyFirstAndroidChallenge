@@ -1,4 +1,4 @@
-package com.example.myfirstandroidchallenge.views
+package com.example.myfirstandroidchallenge.ui
 
 import android.view.View
 import android.widget.ImageView

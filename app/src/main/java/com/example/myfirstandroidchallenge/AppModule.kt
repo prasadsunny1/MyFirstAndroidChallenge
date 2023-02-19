@@ -1,7 +1,8 @@
 package com.example.myfirstandroidchallenge
 
 import android.content.Context
-import com.example.myfirstandroidchallenge.database.ProductDatabaseService
+import com.example.myfirstandroidchallenge.data_sources.database.ProductDatabase
+import com.example.myfirstandroidchallenge.data_sources.network.ProductService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,7 +20,6 @@ class AppModule {
     @Provides
     @Singleton
     fun provideDatabaseServiceInstance(@ApplicationContext context: Context) =
-        ProductDatabaseService.create(context);
-
+        ProductDatabase.create(context);
 
 }

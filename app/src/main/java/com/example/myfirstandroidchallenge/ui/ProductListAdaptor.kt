@@ -1,4 +1,4 @@
-package com.example.myfirstandroidchallenge.views
+package com.example.myfirstandroidchallenge.ui
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.myfirstandroidchallenge.R
-import com.example.myfirstandroidchallenge.models.ProductItem
+import com.example.myfirstandroidchallenge.data_sources.network.ProductItem
 
 class ProductListAdaptor(private val context: Context? = null) :
     RecyclerView.Adapter<ProductViewHolder>() {

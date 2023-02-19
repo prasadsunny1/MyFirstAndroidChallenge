@@ -1,6 +1,6 @@
-package com.example.myfirstandroidchallenge
+package com.example.myfirstandroidchallenge.view_model
 
-import com.example.myfirstandroidchallenge.models.ProductItem
+import com.example.myfirstandroidchallenge.data_sources.network.ProductItem
 
 
 sealed class ProductLoadStates {

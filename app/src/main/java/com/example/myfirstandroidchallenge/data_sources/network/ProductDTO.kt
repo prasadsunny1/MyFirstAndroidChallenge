@@ -1,4 +1,4 @@
-package com.example.myfirstandroidchallenge.models
+package com.example.myfirstandroidchallenge.data_sources.network
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty

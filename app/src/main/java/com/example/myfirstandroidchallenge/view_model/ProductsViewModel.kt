@@ -1,6 +1,7 @@
-package com.example.myfirstandroidchallenge
+package com.example.myfirstandroidchallenge.view_model
 
 import androidx.lifecycle.*
+import com.example.myfirstandroidchallenge.repository.ProductRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

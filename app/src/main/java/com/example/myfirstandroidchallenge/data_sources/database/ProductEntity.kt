@@ -1,4 +1,4 @@
-package com.example.myfirstandroidchallenge.database
+package com.example.myfirstandroidchallenge.data_sources.database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -13,3 +13,7 @@ data class ProductEntity(
     @ColumnInfo val image: String,
     @ColumnInfo val timestamp: Long = System.currentTimeMillis()
 )
+
+fun add() {
+}
+

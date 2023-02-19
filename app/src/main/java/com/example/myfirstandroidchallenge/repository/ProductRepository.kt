@@ -1,14 +1,15 @@
-package com.example.myfirstandroidchallenge
+package com.example.myfirstandroidchallenge.repository
 
-import com.example.myfirstandroidchallenge.database.ProductDatabaseService
-import com.example.myfirstandroidchallenge.database.ProductEntity
-import com.example.myfirstandroidchallenge.models.ProductItem
+import com.example.myfirstandroidchallenge.data_sources.database.ProductDatabase
+import com.example.myfirstandroidchallenge.data_sources.database.ProductEntity
+import com.example.myfirstandroidchallenge.data_sources.network.ProductService
+import com.example.myfirstandroidchallenge.data_sources.network.ProductItem
 import javax.inject.Inject
 
 class ProductRepository
 @Inject constructor(
     private val productService: ProductService,
-    private val productDatabaseService: ProductDatabaseService,
+    private val productDatabaseService: ProductDatabase,
 ) {
 
     // Get products from service and return product or throw error
@@ -32,7 +33,8 @@ class ProductRepository
                 image = product.image ?: "",
             )
         }
-        productEntities?.toTypedArray()?.let { productDatabaseService.productDao().insertAll(*it) }
+        productEntities?.toTypedArray()
+            ?.let { productDatabaseService.productDao().insertAllProducts(*it) }
 
     }
 
@@ -45,7 +47,7 @@ class ProductRepository
         forceInvalidateCatchAndReFetch: Boolean = false,
         cacheExpiryTimeInMills: Int = 1000 * 24 * 3600
     ): List<ProductItem>? {
-        val allProducts = productDatabaseService.productDao().getAll()
+        val allProducts = productDatabaseService.productDao().getAllProducts()
         // This is cache expiry time
         val isAnyOfTheCachedProductsExpired = allProducts.any {
             (System.currentTimeMillis() - it.timestamp) > cacheExpiryTimeInMills

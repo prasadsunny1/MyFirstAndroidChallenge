@@ -1,6 +1,5 @@
-package com.example.myfirstandroidchallenge
+package com.example.myfirstandroidchallenge.data_sources.network
 
-import com.example.myfirstandroidchallenge.models.ProductDTO
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.jackson.JacksonConverterFactory
