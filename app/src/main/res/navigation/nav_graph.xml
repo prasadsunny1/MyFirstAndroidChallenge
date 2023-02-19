@@ -17,17 +17,17 @@
         tools:layout="@layout/fragment_second" />
     <fragment
         android:id="@+id/thirdFragment"
-        android:name="com.example.myfirstandroidchallenge.ui.ThirdFragment"
+        android:name="com.example.myfirstandroidchallenge.ui.BlankFragment"
         android:label="fragment_third"
-        tools:layout="@layout/fragment_third" />
+        tools:layout="@layout/fragment_blank" />
     <fragment
         android:id="@+id/fourthFragment"
-        android:name="com.example.myfirstandroidchallenge.ui.ThirdFragment"
+        android:name="com.example.myfirstandroidchallenge.ui.BlankFragment"
         android:label="fragment_third"
-        tools:layout="@layout/fragment_third" />
+        tools:layout="@layout/fragment_blank" />
     <fragment
         android:id="@+id/fifthFragment"
-        android:name="com.example.myfirstandroidchallenge.ui.ThirdFragment"
+        android:name="com.example.myfirstandroidchallenge.ui.BlankFragment"
         android:label="fragment_third"
-        tools:layout="@layout/fragment_third" />
+        tools:layout="@layout/fragment_blank" />
 </navigation>
