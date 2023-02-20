@@ -38,7 +38,7 @@ class ProductsViewModel @Inject constructor(
                     forceInvalidateCatchAndReFetch = userInitiateRefresh,
                     searchKeyword = searchKeyword
                 )
-            if (!productItems.isNullOrEmpty()) {
+            if (productItems.isEmpty().not()) {
                 _productLoadStates.postValue(ProductLoadStates.Loaded(productItems))
 
             } else {

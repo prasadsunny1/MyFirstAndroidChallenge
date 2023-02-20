@@ -7,7 +7,9 @@ import com.fasterxml.jackson.annotation.JsonProperty
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class ProductDTO(
     @JsonProperty("status") val status: String? = null,
+
     @JsonProperty("error") val error: Any? = null,
+    
     @JsonProperty("data") val data: Data? = null
 )
 

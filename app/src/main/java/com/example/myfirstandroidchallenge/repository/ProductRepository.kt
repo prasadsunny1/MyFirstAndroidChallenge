@@ -44,7 +44,7 @@ class ProductRepository
         forceInvalidateCatchAndReFetch: Boolean = false,
         cacheExpiryTimeInMills: Int? = null,
         searchKeyword: String? = null,
-    ): List<ProductDO>? {
+    ): List<ProductDO> {
         var resultProducts = getProductsFromDB(searchKeyword = searchKeyword)
         val isAnyOfTheCachedProductsExpired = isAnyOfTheCachedProductsExpired(
             resultProducts, cacheExpiryTimeInMills ?: AppConstants.ONE_DAY_IN_MILLIS
@@ -72,7 +72,7 @@ class ProductRepository
 
     private fun getProductsFromDB(searchKeyword: String? = null): List<ProductEntity> {
 
-        var allProducts = if (searchKeyword.isNullOrEmpty()) {
+        val allProducts = if (searchKeyword.isNullOrEmpty()) {
             productDatabaseService.productDao().getAllProducts(ProductEntityColumnNames.NAME)
 
         } else {
