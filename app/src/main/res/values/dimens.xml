@@ -2,4 +2,11 @@
 <resources>
     <dimen name="margin_half">8dp</dimen>
     <dimen name="padding_default">16dp</dimen>
+    <dimen name="explore_tv_size">18sp</dimen>
+    <dimen name="filter_tv_textsize">18sp</dimen>
+    <dimen name="padding_half">8dp</dimen>
+    <dimen name="hint_tv_text_size">18sp</dimen>
+    <dimen name="product_price_tv_text_size">14sp</dimen>
+    <dimen name="product_name_tv_text_size">14sp</dimen>
+    <dimen name="product_img_height_small">50dp</dimen>
 </resources>

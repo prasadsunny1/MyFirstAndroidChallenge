@@ -5,13 +5,13 @@
     android:id="@+id/clProductItemRow"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="16dp"
+    android:layout_margin="@dimen/padding_default"
     android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/imgViewProductImage"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/product_img_height_small"
+        android:layout_height="@dimen/product_img_height_small"
         android:contentDescription="@string/product_image_content_description"
         tools:src="@android:color/holo_green_light"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:textSize="16sp"
+        android:textSize="@dimen/product_name_tv_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imgViewProductImage"
         app:layout_constraintTop_toTopOf="@+id/imgViewProductImage"
@@ -47,6 +47,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvProductPrice"
         tools:text="Same Day Shipping" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
