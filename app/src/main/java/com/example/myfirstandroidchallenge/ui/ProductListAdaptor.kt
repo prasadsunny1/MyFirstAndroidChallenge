@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.myfirstandroidchallenge.R
-import com.example.myfirstandroidchallenge.data_sources.network.ProductItem
 import com.example.myfirstandroidchallenge.databinding.ProductGridItemBinding
 import com.example.myfirstandroidchallenge.databinding.ProductListItemBinding
 import com.example.myfirstandroidchallenge.repository.ProductDO

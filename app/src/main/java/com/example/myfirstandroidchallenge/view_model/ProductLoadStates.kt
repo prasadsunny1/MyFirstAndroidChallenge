@@ -1,6 +1,5 @@
 package com.example.myfirstandroidchallenge.view_model
 
-import com.example.myfirstandroidchallenge.data_sources.network.ProductItem
 import com.example.myfirstandroidchallenge.repository.ProductDO
 
 
