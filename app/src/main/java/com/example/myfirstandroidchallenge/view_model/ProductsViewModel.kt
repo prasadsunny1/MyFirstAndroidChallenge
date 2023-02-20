@@ -3,12 +3,16 @@ package com.example.myfirstandroidchallenge.view_model
 import androidx.lifecycle.*
 import com.example.myfirstandroidchallenge.repository.ProductRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ProductsViewModel @Inject constructor(private val productRepository: ProductRepository) :
+class ProductsViewModel @Inject constructor(
+    private val productRepository: ProductRepository,
+    private val coroutineScope: CoroutineDispatcher
+) :
     ViewModel() {
 
 
@@ -29,7 +33,7 @@ class ProductsViewModel @Inject constructor(private val productRepository: Produ
     /// Get products from service
     private fun getProducts(userInitiateRefresh: Boolean = false, searchKeyword: String? = null) {
         _productLoadStates.postValue(ProductLoadStates.Loading)
-        viewModelScope.launch(context = Dispatchers.IO) {
+        viewModelScope.launch(context = coroutineScope) {
             val productItems =
                 productRepository.getAllProductsWithReFetchIfNeeded(
                     forceInvalidateCatchAndReFetch = userInitiateRefresh,
