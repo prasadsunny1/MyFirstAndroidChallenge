@@ -7,4 +7,5 @@
     <string name="header_textfield_hint">Search</string>
     <string name="product_image_content_description">Product Image</string>
     <string name="product_load_failed_message">Something went wrong while loading products</string>
+    <string name="mrp_text">MRP:</string>
 </resources>

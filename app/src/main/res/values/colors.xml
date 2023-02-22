@@ -11,4 +11,6 @@
     <color name="lightest_blue_color">#E6E9F7</color>
     <color name="black_color">#000000</color>
     <color name="bright_green_color">#5DB075</color>
+    <color name="item_extra_info_color">#A3A3A3</color>
+    <color name="item_price_text_color">#000000</color>
 </resources>
