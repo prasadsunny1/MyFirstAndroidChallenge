@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/productListFragment">
+
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="com.example.myfirstandroidchallenge.ui.ProductListFragment"
+        android:label="fragment_first"
+        tools:layout="@layout/fragment_product_list" />
+    <fragment
+        android:id="@+id/productGridFragment"
+        android:name="com.example.myfirstandroidchallenge.ui.ProductGridFragment"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_product_grid" />
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.example.myfirstandroidchallenge.ui.BlankFragment"
+        android:label="fragment_third"
+        tools:layout="@layout/fragment_blank" />
+    <fragment
+        android:id="@+id/fourthFragment"
+        android:name="com.example.myfirstandroidchallenge.ui.BlankFragment"
+        android:label="fragment_third"
+        tools:layout="@layout/fragment_blank" />
+    <fragment
+        android:id="@+id/fifthFragment"
+        android:name="com.example.myfirstandroidchallenge.ui.BlankFragment"
+        android:label="fragment_third"
+        tools:layout="@layout/fragment_blank" />
+</navigation>
