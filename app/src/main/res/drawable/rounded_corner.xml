@@ -2,23 +2,23 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_focused="true">
         <shape android:shape="rectangle">
-            <solid android:color="@color/white" />
+            <solid android:color="@color/search_box_shape_bg_color" />
             <corners android:radius="100dp" />
-            <stroke android:width="0dp" android:color="@color/white" />
+            <stroke android:width="0dp" android:color="@color/search_box_shape_stroke_color" />
         </shape>
     </item>
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
-            <solid android:color="@color/white" />
+            <solid android:color="@color/search_box_shape_bg_color" />
             <corners android:radius="100dp" />
-            <stroke android:width="0dp" android:color="@color/white" />
+            <stroke android:width="0dp" android:color="@color/search_box_shape_stroke_color" />
         </shape>
     </item>
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@color/white" />
+            <solid android:color="@color/search_box_shape_bg_color" />
             <corners android:radius="100dp" />
-            <stroke android:width="0dp" android:color="@color/white" />
+            <stroke android:width="0dp" android:color="@color/search_box_shape_stroke_color" />
         </shape>
     </item>
 </selector>

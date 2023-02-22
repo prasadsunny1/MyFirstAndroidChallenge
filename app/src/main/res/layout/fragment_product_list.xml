@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
-            android:paddingTop="23dp"
+            android:paddingTop="@dimen/padding_24"
             android:visibility="gone"
             tools:listitem="@layout/product_list_item"
             tools:visibility="visible" />
