@@ -35,6 +35,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone"
+            android:clipToPadding="false"
+            android:paddingHorizontal="32dp"
+            android:paddingTop="40dp"
             tools:listitem="@layout/product_list_item"
             tools:visibility="visible" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
