@@ -31,7 +31,7 @@
 
     <TextView
         android:id="@+id/tvProductPrice"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/no_size"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding_4"
         android:layout_marginBottom="@dimen/padding_8"

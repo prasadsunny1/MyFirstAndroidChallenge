@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">MyFirstAndroidChallenge</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="blank_fragment_text">Hello blank fragment</string>
-    <string name="explore_label_header">Explore</string>
-    <string name="filter_label_header">Filter</string>
-    <string name="header_textfield_hint">Search</string>
-    <string name="product_list_item_image_content_description">Product Image</string>
+    <string name="header_explore_text_value">Explore</string>
+    <string name="header_filter_text_value">Filter</string>
+    <string name="header_searchbox_hint_text_value">Search</string>
+    <string name="product_list_item_image_content_description">Product image of a list item</string>
+    <string name="product_grid_item_image_content_description">Product image of a grid item</string>
     <string name="product_load_failed_message">Something went wrong while loading products</string>
     <string name="mrp_text">MRP:</string>
 </resources>
