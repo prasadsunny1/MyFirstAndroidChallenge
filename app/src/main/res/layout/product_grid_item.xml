@@ -28,7 +28,6 @@
 
     <TextView
         android:id="@+id/tvProductPrice"
-        style="@style/GridItemPriceTextStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="@dimen/product_price_tv_text_size"
