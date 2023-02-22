@@ -12,23 +12,23 @@
         android:layout_height="110dp"
         android:contentDescription="@string/product_image_content_description"
         android:scaleType="fitXY"
-        tools:background="#F6F6F6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="#F6F6F6" />
 
     <TextView
         android:id="@+id/tvProductName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_half"
-        tools:text="Item 1"
         android:fontFamily="@font/inter"
         android:textColor="@color/black_color"
-
         android:textSize="@dimen/product_name_tv_text_size"
+
         app:layout_constraintStart_toStartOf="@+id/imgViewProductImage"
-        app:layout_constraintTop_toBottomOf="@+id/imgViewProductImage" />
+        app:layout_constraintTop_toBottomOf="@+id/imgViewProductImage"
+        tools:text="Item 1" />
 
     <TextView
         android:id="@+id/tvProductPrice"
@@ -36,9 +36,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="8dp"
-        android:textSize="@dimen/product_price_tv_text_size"
         android:fontFamily="@font/inter_semibold"
         android:textColor="@color/black_color"
+        android:textSize="@dimen/product_price_tv_text_size"
         app:layout_constraintStart_toStartOf="@+id/tvProductName"
         app:layout_constraintTop_toBottomOf="@+id/tvProductName"
         tools:text="₹100.0" />

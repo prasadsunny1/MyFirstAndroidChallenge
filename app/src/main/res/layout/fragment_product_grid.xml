@@ -12,9 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:visibility="gone"
+        tools:ignore="VisualLintOverlap"
         tools:text="Empty view"
-        tools:visibility="visible"
-        tools:ignore="VisualLintOverlap" />
+        tools:visibility="visible" />
 
 
     <ProgressBar
@@ -34,10 +34,10 @@
             android:id="@+id/rvProductList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"
             android:clipToPadding="false"
             android:paddingHorizontal="32dp"
             android:paddingTop="40dp"
+            android:visibility="gone"
             tools:listitem="@layout/product_list_item"
             tools:visibility="visible" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

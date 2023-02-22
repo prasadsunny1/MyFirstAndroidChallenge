@@ -10,8 +10,8 @@
     <include
         android:id="@+id/header_section_layout"
         layout="@layout/header_section_layout"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/mainContainer"
