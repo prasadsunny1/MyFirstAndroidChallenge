@@ -24,7 +24,7 @@
         android:layout_marginTop="@dimen/padding_8"
         android:fontFamily="@font/inter"
         android:textColor="@color/product_grid_item_title_text_color"
-        android:textSize="@dimen/product_list_item_name_text_size"
+        android:textSize="@dimen/product_grid_item_name_text_size"
         app:layout_constraintStart_toStartOf="@+id/imgViewProductImage"
         app:layout_constraintTop_toBottomOf="@+id/imgViewProductImage"
         tools:text="Item 1" />
@@ -37,7 +37,7 @@
         android:layout_marginBottom="@dimen/padding_8"
         android:fontFamily="@font/inter_semibold"
         android:textColor="@color/product_grid_item_price_text_color"
-        android:textSize="@dimen/product_list_item_price_tv_text_size"
+        android:textSize="@dimen/product_grid_item_price_text_size"
         app:layout_constraintStart_toStartOf="@+id/tvProductName"
         app:layout_constraintTop_toBottomOf="@+id/tvProductName"
         tools:text="₹100.0" />
