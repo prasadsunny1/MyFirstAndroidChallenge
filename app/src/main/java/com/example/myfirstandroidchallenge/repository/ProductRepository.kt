@@ -47,7 +47,7 @@ class ProductRepository
     ): List<ProductDO> {
         var resultProducts = getProductsFromDB(searchKeyword = searchKeyword)
         val isAnyOfTheCachedProductsExpired = isAnyOfTheCachedProductsExpired(
-            resultProducts, cacheExpiryTimeInMills ?: AppConstants.ONE_DAY_IN_MILLIS
+            resultProducts, cacheExpiryTimeInMills ?: AppConstants.CACHE_EXPIRY_TIME
         )
 
         if (isAnyOfTheCachedProductsExpired || resultProducts.isEmpty() || forceInvalidateCatchAndReFetch) {
@@ -62,7 +62,7 @@ class ProductRepository
     }
 
     private fun isAnyOfTheCachedProductsExpired(
-        products: List<ProductEntity>, cacheExpiryTimeInMills: Int = AppConstants.ONE_DAY_IN_MILLIS
+        products: List<ProductEntity>, cacheExpiryTimeInMills: Int = AppConstants.CACHE_EXPIRY_TIME
     ): Boolean {
         val isAnyOfTheCachedProductsExpired = products.any {
             (System.currentTimeMillis() - it.timestamp) > cacheExpiryTimeInMills

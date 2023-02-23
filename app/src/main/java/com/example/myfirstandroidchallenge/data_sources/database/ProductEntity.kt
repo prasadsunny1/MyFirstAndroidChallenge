@@ -14,7 +14,7 @@ import com.example.myfirstandroidchallenge.AppConstants
  * @param image: The image of the product
  * @param timestamp: The timestamp of the product
  */
-@Entity(tableName = AppConstants.DATABASE_NAME)
+@Entity(tableName = AppConstants.TABLE_NAME)
 data class ProductEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo val name: String,

@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.myfirstandroidchallenge.AppConstants
 
 @Database(entities = [ProductEntity::class], version = 1)
 abstract class ProductDatabase : RoomDatabase() {
@@ -16,7 +17,7 @@ abstract class ProductDatabase : RoomDatabase() {
          */
         fun create(applicationContext: Context): ProductDatabase {
             return Room.databaseBuilder(
-                applicationContext, ProductDatabase::class.java, "database-name"
+                applicationContext, ProductDatabase::class.java, AppConstants.DATABASE_NAME
             ).build()
         }
     }
