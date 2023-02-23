@@ -2,50 +2,80 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/clProductItemRow"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/padding_default"
-    android:orientation="horizontal">
+    android:layout_marginHorizontal="@dimen/padding_32"
+    android:layout_marginTop="@dimen/padding_16"
+    android:layout_marginBottom="@dimen/no_padding">
 
     <ImageView
         android:id="@+id/imgViewProductImage"
-        android:layout_width="@dimen/product_img_height_small"
-        android:layout_height="@dimen/product_img_height_small"
-        android:contentDescription="@string/product_image_content_description"
-        tools:src="@android:color/holo_green_light"
+        android:layout_width="@dimen/product_list_item_img_height"
+        android:layout_height="@dimen/product_list_item_img_height"
+        android:contentDescription="@string/product_list_item_image_content_description"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@android:color/holo_green_light" />
 
 
     <TextView
         android:id="@+id/tvProductName"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/no_size"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:textSize="@dimen/product_name_tv_text_size"
+        android:layout_marginStart="@dimen/padding_16"
+        android:fontFamily="@font/inter_semibold"
+        android:textColor="@color/product_list_item_name_text_size"
+        android:textSize="@dimen/product_list_item_name_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imgViewProductImage"
         app:layout_constraintTop_toTopOf="@+id/imgViewProductImage"
-        tools:text="Abcd" />
+        tools:text="Item x" />
+
+    <TextView
+        android:id="@+id/tvMrp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_8"
+        android:fontFamily="@font/inter"
+        android:text="@string/mrp_text"
+        android:textColor="@color/product_list_item_mrp_text_color"
+        android:textSize="@dimen/product_list_item_mrp_text_size"
+        app:layout_constraintBaseline_toBottomOf="@id/imgViewProductImage"
+        app:layout_constraintStart_toStartOf="@+id/tvProductName"
+        app:layout_constraintTop_toBottomOf="@+id/tvProductName" />
 
     <TextView
         android:id="@+id/tvProductPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="11dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imgViewProductImage"
-        app:layout_constraintStart_toEndOf="@+id/imgViewProductImage"
-        tools:text="MRP: Rs 100" />
+        android:fontFamily="@font/inter"
+        android:textColor="@color/product_list_item_price_text_color"
+        android:textSize="@dimen/product_list_item_price_text_size"
+        app:layout_constraintBaseline_toBottomOf="@id/imgViewProductImage"
+        app:layout_constraintStart_toEndOf="@+id/tvMrp"
+        app:layout_constraintTop_toTopOf="@+id/tvMrp"
+        tools:text="Rs 100" />
 
     <TextView
         android:id="@+id/tvProductExtraInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/imgViewProductImage"
+        android:fontFamily="@font/inter"
+        android:textColor="@color/product_list_item_extra_info_text_color"
+        android:textSize="@dimen/product_list_item_extra_info_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvProductPrice"
+        app:layout_constraintTop_toTopOf="@+id/tvProductPrice"
         tools:text="Same Day Shipping" />
+
+    <View
+        android:layout_width="@dimen/no_size"
+        android:layout_height="@dimen/product_list_separator_thickness"
+        android:layout_marginTop="@dimen/padding_12"
+        android:background="@color/product_list_item_separator_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvMrp"
+        app:layout_constraintTop_toBottomOf="@+id/tvMrp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

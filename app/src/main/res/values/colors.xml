@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!--    Color Values-->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -7,8 +9,37 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="bottom_nav_color">#D34D43</color>
-    <color name="lightest_blue_color">#E6E9F6</color>
-    <color name="black_color">#000000</color>
+    <color name="no_color">#00000000</color>
+    <color name="lightest_blue_color">#E6E9F7</color>
     <color name="bright_green_color">#5DB075</color>
+    <color name="light_grey_color">#A3A3A3</color>
+    <color name="lighter_grey_color">#BDBDBD</color>
+
+    <!--    Header-->
+    <color name="search_box_edit_text_bg_color">@color/no_color</color>
+    <color name="search_box_box_stroke_color">@color/no_color</color>
+    <color name="search_box_box_stroke_error_color">@color/no_color</color>
+    <color name="search_box_shape_stroke_color">@color/no_color</color>
+    <color name="search_box_shape_bg_color">@color/white</color>
+    <color name="search_box_bg_color">@color/white</color>
+    <color name="search_box_hint_text_color">@color/lighter_grey_color</color>
+    <color name="search_box_text_color">@color/black</color>
+    <color name="header_explore_text_color">@color/black</color>
+    <color name="header_section_bg_color">@color/lightest_blue_color</color>
+    <color name="header_filter_text_view_color">@color/bright_green_color</color>
+
+    <!--    List Item-->
+    <color name="product_list_item_extra_info_text_color">@color/light_grey_color</color>
+    <color name="product_list_item_price_text_color">@color/black</color>
+    <color name="product_list_item_separator_color">#E8E8E8</color>
+    <color name="product_list_item_mrp_text_color">@color/light_grey_color</color>
+    <color name="product_list_item_name_text_size">@color/black</color>
+
+    <!--    Grid Item-->
+    <color name="product_grid_item_title_text_color">@color/black</color>
+    <color name="product_grid_item_price_text_color">@color/black</color>
+
+    <!--    Others-->
+    <color name="bottom_nav_bg_color">#D34D43</color>
+
 </resources>

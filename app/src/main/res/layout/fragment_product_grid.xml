@@ -12,10 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:visibility="gone"
+        tools:ignore="VisualLintOverlap"
         tools:text="Empty view"
-        tools:visibility="visible"
-        tools:ignore="VisualLintOverlap" />
-
+        tools:visibility="visible" />
 
     <ProgressBar
         android:id="@+id/circularLoaderView"
@@ -34,6 +33,9 @@
             android:id="@+id/rvProductList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingHorizontal="@dimen/padding_32"
+            android:paddingTop="@dimen/padding_40"
             android:visibility="gone"
             tools:listitem="@layout/product_list_item"
             tools:visibility="visible" />

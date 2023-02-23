@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/lightest_blue_color">
+    android:background="@color/header_section_bg_color"
+    android:paddingHorizontal="@dimen/padding_32"
+    android:paddingTop="@dimen/padding_36"
+    android:paddingBottom="@dimen/padding_20">
 
     <TextView
         android:id="@+id/tv_explore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="@dimen/padding_default"
-        android:layout_marginTop="@dimen/padding_default"
-        android:text="@string/explore_label_header"
-        android:textColor="@color/black_color"
-        android:textSize="@dimen/explore_tv_size"
+        android:layout_marginStart="@dimen/padding_16"
+        android:fontFamily="@font/inter_semibold"
+        android:includeFontPadding="false"
+        android:text="@string/header_explore_text_value"
+        android:textColor="@color/header_explore_text_color"
+        android:textSize="@dimen/header_title_tv_size"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,57 +26,47 @@
         android:id="@+id/tvFilter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_default"
-        android:layout_marginEnd="@dimen/padding_default"
-        android:text="@string/filter_label_header"
-        android:textColor="@color/bright_green_color"
-        android:textSize="@dimen/filter_tv_textsize"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:fontFamily="@font/inter_medium"
+        android:text="@string/header_filter_text_value"
+        android:textColor="@color/header_filter_text_view_color"
+        android:textSize="@dimen/header_filter_tv_textsize"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_explore"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/llSearchBox"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_16"
+        android:background="@drawable/rounded_corner"
+        app:boxBackgroundColor="@color/search_box_bg_color"
+        app:boxBackgroundMode="filled"
+        app:boxStrokeColor="@color/search_box_box_stroke_color"
+        app:boxStrokeErrorColor="@color/search_box_box_stroke_error_color"
+        app:boxStrokeWidth="@dimen/no_size"
+        app:boxStrokeWidthFocused="@dimen/no_size"
+        app:hintEnabled="false"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvFilter">
-        <!--A search box with rounded corners, and no outline, no floating hint text, white background-->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/tv_explore">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/padding_default"
-            android:layout_marginTop="@dimen/padding_default"
-            android:layout_marginEnd="@dimen/padding_default"
-            android:layout_marginBottom="@dimen/padding_default"
-            android:background="@drawable/rounded_corner"
-            android:padding="@dimen/padding_half"
-            app:boxBackgroundColor="#FFFFFF"
-            app:boxBackgroundMode="filled"
-            app:boxStrokeColor="#FFFFFF"
-            app:boxStrokeWidth="0dp"
-            app:hintEnabled="false"
-            app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:hintTextColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:autofillHints="false"
+            android:background="@color/search_box_edit_text_bg_color"
+            android:fontFamily="@font/inter_medium"
+            android:hint="@string/header_searchbox_hint_text_value"
+            android:includeFontPadding="false"
+            android:inputType="text"
+            android:paddingHorizontal="@dimen/no_padding"
+            android:paddingVertical="@dimen/padding_16"
+            android:textColor="@color/search_box_text_color"
+            android:textColorHint="@color/search_box_hint_text_color"
+            android:textSize="@dimen/hint_tv_text_size" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextSearch"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:hint="@string/header_textfield_hint"
-                android:inputType="text"
-                android:padding="@dimen/padding_half"
-                android:textColor="@color/black_color"
-                android:textColorHint="@color/black_color"
-                android:textSize="@dimen/hint_tv_text_size" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

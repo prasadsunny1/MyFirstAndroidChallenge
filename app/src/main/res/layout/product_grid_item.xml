@@ -2,36 +2,43 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/padding_default">
+    android:layout_marginBottom="@dimen/padding_20"
+    android:layout_marginStart="@dimen/padding_4">
 
     <ImageView
         android:id="@+id/imgViewProductImage"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:contentDescription="@string/product_image_content_description"
+        android:layout_width="@dimen/product_grid_item_img_height"
+        android:layout_height="@dimen/product_grid_item_img_height"
+        android:contentDescription="@string/product_list_item_image_content_description"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="#F6F6F6" />
 
     <TextView
         android:id="@+id/tvProductName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_half"
-        tools:text="Item 1"
-        android:textSize="@dimen/product_name_tv_text_size"
+        android:layout_marginTop="@dimen/padding_8"
+        android:fontFamily="@font/inter"
+        android:textColor="@color/product_grid_item_title_text_color"
+        android:textSize="@dimen/product_grid_item_name_text_size"
         app:layout_constraintStart_toStartOf="@+id/imgViewProductImage"
-        app:layout_constraintTop_toBottomOf="@+id/imgViewProductImage" />
+        app:layout_constraintTop_toBottomOf="@+id/imgViewProductImage"
+        tools:text="Item 1" />
 
     <TextView
         android:id="@+id/tvProductPrice"
-        style="@style/GridItemPriceTextStyle"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/no_size"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/product_price_tv_text_size"
+        android:layout_marginTop="@dimen/padding_4"
+        android:layout_marginBottom="@dimen/padding_8"
+        android:fontFamily="@font/inter_semibold"
+        android:textColor="@color/product_grid_item_price_text_color"
+        android:textSize="@dimen/product_grid_item_price_text_size"
         app:layout_constraintStart_toStartOf="@+id/tvProductName"
         app:layout_constraintTop_toBottomOf="@+id/tvProductName"
         tools:text="₹100.0" />
