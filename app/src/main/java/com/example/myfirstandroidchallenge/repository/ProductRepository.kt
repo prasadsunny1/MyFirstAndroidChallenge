@@ -4,8 +4,8 @@ import com.example.myfirstandroidchallenge.AppConstants
 import com.example.myfirstandroidchallenge.data_sources.database.ProductDatabase
 import com.example.myfirstandroidchallenge.data_sources.database.ProductEntity
 import com.example.myfirstandroidchallenge.data_sources.database.ProductEntityColumnNames
-import com.example.myfirstandroidchallenge.data_sources.network.ProductAPIService
-import com.example.myfirstandroidchallenge.data_sources.network.ProductItem
+import com.example.myfirstandroidchallenge.data.api.client.ProductAPIService
+import com.example.myfirstandroidchallenge.data.api.dto.ProductItemDTO
 import javax.inject.Inject
 
 class ProductRepository
@@ -15,7 +15,7 @@ class ProductRepository
 ) {
 
     // Get products from service and return product or throw error
-    private fun getProductsFromApiAndCache(): List<ProductItem>? {
+    private fun getProductsFromApiAndCache(): List<ProductItemDTO>? {
 
         val response = productAPIService.getProducts().execute()
         if (response.errorBody() != null) {
@@ -26,13 +26,12 @@ class ProductRepository
         }
     }
 
-    private fun saveProductsToDB(products: List<ProductItem>?) {
+    private fun saveProductsToDB(products: List<ProductItemDTO>?) {
         val productEntities: List<ProductEntity>? = products?.map { product ->
             ApiDtoToDBEntity.map(product)
         }
         productEntities?.toTypedArray()
             ?.let { productDatabaseService.productDao().insertAllProducts(*it) }
-
     }
 
     /**
@@ -74,7 +73,6 @@ class ProductRepository
 
         val allProducts = if (searchKeyword.isNullOrEmpty()) {
             productDatabaseService.productDao().getAllProducts(ProductEntityColumnNames.NAME)
-
         } else {
             productDatabaseService.productDao()
                 .searchAllProductsByName(searchKeyword, ProductEntityColumnNames.NAME)
@@ -82,5 +80,4 @@ class ProductRepository
 
         return allProducts
     }
-
 }

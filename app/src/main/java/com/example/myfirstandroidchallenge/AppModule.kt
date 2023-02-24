@@ -2,7 +2,7 @@ package com.example.myfirstandroidchallenge
 
 import android.content.Context
 import com.example.myfirstandroidchallenge.data_sources.database.ProductDatabase
-import com.example.myfirstandroidchallenge.data_sources.network.ProductAPIService
+import com.example.myfirstandroidchallenge.data.api.client.ProductAPIService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -39,5 +39,4 @@ class AppModule {
     @Provides
     @Singleton
     fun provideCoRoutineScope(): CoroutineDispatcher = Dispatchers.IO
-
 }
