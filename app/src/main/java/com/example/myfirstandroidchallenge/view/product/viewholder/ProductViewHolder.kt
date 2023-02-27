@@ -1,4 +1,4 @@
-package com.example.myfirstandroidchallenge.ui
+package com.example.myfirstandroidchallenge.view.product.viewholder
 
 import android.view.View
 import android.widget.ImageView
@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myfirstandroidchallenge.R
 
 class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
     var tvProductName: TextView = itemView.findViewById(R.id.tvProductName)
     var tvProductPrice: TextView = itemView.findViewById(R.id.tvProductPrice)
     var tvProductExtraInfo: TextView? = itemView.findViewById(R.id.tvProductExtraInfo)

@@ -1,4 +1,4 @@
-package com.example.myfirstandroidchallenge.core
+package com.example.myfirstandroidchallenge.model.mapper
 
 interface BaseMapper<in A, out B> {
 

@@ -1,9 +1,9 @@
-package com.example.myfirstandroidchallenge
+package com.example.myfirstandroidchallenge.di
 
 import android.content.Context
 import com.example.myfirstandroidchallenge.data.api.client.IProductHttpClient
 import com.example.myfirstandroidchallenge.data.api.client.ProductHttpClient
-import com.example.myfirstandroidchallenge.data_sources.database.ProductDatabase
+import com.example.myfirstandroidchallenge.data.databse.database.ProductDatabase
 import com.example.myfirstandroidchallenge.data.api.service.ProductAPIService
 import dagger.Binds
 import dagger.Module
@@ -13,7 +13,6 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import javax.inject.Inject
 import javax.inject.Singleton
 
 /**

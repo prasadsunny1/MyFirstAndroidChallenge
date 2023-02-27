@@ -1,10 +1,11 @@
 package com.example.myfirstandroidchallenge
 
-import com.example.myfirstandroidchallenge.data_sources.database.ProductEntity
+import com.example.myfirstandroidchallenge.data.databse.entity.ProductEntity
 
 class TestData {
 
     companion object {
+
         val productEntity = ProductEntity(
             1,
             "pName",

@@ -1,9 +1,10 @@
-package com.example.myfirstandroidchallenge.data_sources.database
+package com.example.myfirstandroidchallenge.data.databse.helpers
 
 /**
  * This class is used to define the column names of the [ProductEntity] table.
  */
 enum class ProductEntityColumnNames {
+
     ID, NAME, PRICE, EXTRA, IMAGE, TIMESTAMP;
 
     override fun toString(): String {

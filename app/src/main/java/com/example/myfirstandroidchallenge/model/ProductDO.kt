@@ -1,4 +1,4 @@
-package com.example.myfirstandroidchallenge.repository
+package com.example.myfirstandroidchallenge.model
 
 /**
  * Product Domain object

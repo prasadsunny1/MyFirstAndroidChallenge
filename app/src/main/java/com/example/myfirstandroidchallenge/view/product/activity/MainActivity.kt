@@ -1,4 +1,4 @@
-package com.example.myfirstandroidchallenge.ui
+package com.example.myfirstandroidchallenge.view.product.activity
 
 import android.os.Bundle
 import android.view.View
@@ -17,6 +17,7 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity @Inject constructor() : AppCompatActivity() {
+
     private val productsViewModel: ProductsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,5 +39,4 @@ class MainActivity @Inject constructor() : AppCompatActivity() {
             findViewById<View>(R.id.bottomNavigationView) as BottomNavigationView
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
     }
-
 }

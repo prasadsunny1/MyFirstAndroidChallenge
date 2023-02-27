@@ -1,7 +1,6 @@
-package com.example.myfirstandroidchallenge.view_model
+package com.example.myfirstandroidchallenge.view.product.states
 
-import com.example.myfirstandroidchallenge.repository.ProductDO
-
+import com.example.myfirstandroidchallenge.model.ProductDO
 
 sealed class ProductLoadStates {
     object Loading : ProductLoadStates()

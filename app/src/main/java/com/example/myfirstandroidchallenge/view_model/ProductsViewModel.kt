@@ -1,15 +1,14 @@
 package com.example.myfirstandroidchallenge.view_model
 
-import android.os.Handler
 import androidx.lifecycle.*
-import com.example.myfirstandroidchallenge.repository.ProductRepository
+import com.example.myfirstandroidchallenge.data.repository.ProductRepository
+import com.example.myfirstandroidchallenge.view.product.states.ProductLoadStates
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
 import java.util.Timer
 import java.util.TimerTask
 import javax.inject.Inject
-import kotlin.concurrent.schedule
 
 @HiltViewModel
 class ProductsViewModel @Inject constructor(
@@ -70,7 +69,7 @@ class ProductsViewModel @Inject constructor(
         // Schedule a delayed search operation
         searchTimerTask = object : TimerTask() {
             override fun run() {
-                getProducts(false, searchKeyword)
+                getProducts(searchKeyword = searchKeyword)
             }
         }
         searchTimer.schedule(searchTimerTask, 500L)

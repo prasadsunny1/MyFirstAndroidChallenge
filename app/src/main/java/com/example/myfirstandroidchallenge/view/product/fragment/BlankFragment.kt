@@ -1,4 +1,4 @@
-package com.example.myfirstandroidchallenge.ui
+package com.example.myfirstandroidchallenge.view.product.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

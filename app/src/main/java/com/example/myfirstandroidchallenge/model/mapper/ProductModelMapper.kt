@@ -1,8 +1,9 @@
-package com.example.myfirstandroidchallenge.repository
+package com.example.myfirstandroidchallenge.data.repository
 
-import com.example.myfirstandroidchallenge.core.BaseMapper
-import com.example.myfirstandroidchallenge.data_sources.database.ProductEntity
+import com.example.myfirstandroidchallenge.model.mapper.BaseMapper
+import com.example.myfirstandroidchallenge.data.databse.entity.ProductEntity
 import com.example.myfirstandroidchallenge.data.api.dto.ProductItemDTO
+import com.example.myfirstandroidchallenge.model.ProductDO
 
 /**
  * Mapper to convert from API DTO to Domain Object

@@ -1,9 +1,9 @@
-package com.example.myfirstandroidchallenge.data_sources.database
+package com.example.myfirstandroidchallenge.data.databse.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.myfirstandroidchallenge.AppConstants
+import com.example.myfirstandroidchallenge.data.databse.configs.ProductDbConfig.TABLE_NAME
 
 /**
  * This class is used to define the table structure of the database
@@ -14,7 +14,7 @@ import com.example.myfirstandroidchallenge.AppConstants
  * @param image: The image of the product
  * @param timestamp: The timestamp of the product
  */
-@Entity(tableName = AppConstants.TABLE_NAME)
+@Entity(tableName = TABLE_NAME)
 data class ProductEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo val name: String,

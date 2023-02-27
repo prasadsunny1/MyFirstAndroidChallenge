@@ -1,4 +1,4 @@
-package com.example.myfirstandroidchallenge.ui
+package com.example.myfirstandroidchallenge.view.product.enums
 
 /**
  * The kind of product list to display.
@@ -6,6 +6,7 @@ package com.example.myfirstandroidchallenge.ui
  * [Linear]: Display products in a linear list.
  */
 enum class ProductListKind {
+
     Linear,
     Grid
 }

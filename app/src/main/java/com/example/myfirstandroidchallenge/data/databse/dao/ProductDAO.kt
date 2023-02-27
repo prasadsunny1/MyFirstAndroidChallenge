@@ -1,6 +1,8 @@
-package com.example.myfirstandroidchallenge.data_sources.database
+package com.example.myfirstandroidchallenge.data.databse.dao
 
 import androidx.room.*
+import com.example.myfirstandroidchallenge.data.databse.entity.ProductEntity
+import com.example.myfirstandroidchallenge.data.databse.helpers.ProductEntityColumnNames
 
 @Dao
 interface ProductDAO {
@@ -61,5 +63,4 @@ interface ProductDAO {
      */
     @Delete
     fun delete(vararg products: ProductEntity)
-
 }
