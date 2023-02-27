@@ -2,12 +2,10 @@ package com.example.myfirstandroidchallenge
 
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Rule
-import org.junit.runner.RunWith
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.example.myfirstandroidchallenge.repository.ProductDO
-import com.example.myfirstandroidchallenge.repository.ProductRepository
-import com.example.myfirstandroidchallenge.view_model.ProductLoadStates
+import com.example.myfirstandroidchallenge.model.ProductDO
+import com.example.myfirstandroidchallenge.data.repository.ProductRepository
+import com.example.myfirstandroidchallenge.view.product.states.ProductLoadStates
 import com.example.myfirstandroidchallenge.view_model.ProductsViewModel
 import org.junit.After
 import org.junit.Assert
@@ -17,9 +15,9 @@ import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 
-
 @OptIn(ExperimentalCoroutinesApi::class)
 internal class ProductViewModelTest {
+
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
 
@@ -31,7 +29,6 @@ internal class ProductViewModelTest {
 
     @Mock
     private lateinit var mProductRepository: ProductRepository
-
 
     @Before
     fun setUp() {
@@ -46,17 +43,14 @@ internal class ProductViewModelTest {
 
     @Test
     fun `Test weather loading data saves it to database`() {
-
     }
 
     @Test
     fun `Test weather refreshing flushes and refreshes the data in database`() {
-
     }
 
     @Test
     fun `Test weather searching keyword, test 4, returns only one result `() {
-
     }
 
     @Test

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ProductGridFragment">
+    tools:context=".view.product.fragment.ProductGridFragment">
 
     <!--   Suppress VisualLintOverlap because we are going to use sealed class based livedata-->
     <TextView

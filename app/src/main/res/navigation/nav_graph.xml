@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/productListFragment"
-        android:name="com.example.myfirstandroidchallenge.ui.ProductListFragment"
+        android:name="com.example.myfirstandroidchallenge.view.product.fragment.ProductListFragment"
         android:label="fragment_first"
         tools:layout="@layout/fragment_product_list" />
     <fragment
         android:id="@+id/productGridFragment"
-        android:name="com.example.myfirstandroidchallenge.ui.ProductGridFragment"
+        android:name="com.example.myfirstandroidchallenge.view.product.fragment.ProductGridFragment"
         android:label="fragment_second"
         tools:layout="@layout/fragment_product_grid" />
 </navigation>
