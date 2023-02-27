@@ -4,7 +4,6 @@ import com.example.myfirstandroidchallenge.data.api.config.ProductApiConfig
 import com.example.myfirstandroidchallenge.data.api.dto.ProductResponseDTO
 import retrofit2.Call
 import retrofit2.Retrofit
-import retrofit2.converter.jackson.JacksonConverterFactory
 import retrofit2.http.GET
 
 interface ProductAPIService {
