@@ -46,7 +46,7 @@ class ProductsViewModel @Inject constructor(
             val productItems = productRepository.getAllProductsWithReFetchIfNeeded(
                 forceInvalidateCatchAndReFetch = userInitiateRefresh, searchKeyword = searchKeyword
             )
-            if (productItems.isEmpty().not()) {
+            if (productItems.isNullOrEmpty().not()) {
                 _productLoadStates.postValue(ProductLoadStates.Loaded(productItems))
             } else {
                 _productLoadStates.postValue(ProductLoadStates.EmptyOrError("Failed to load or products not found"))
