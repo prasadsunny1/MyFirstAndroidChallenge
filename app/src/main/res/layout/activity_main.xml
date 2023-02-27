@@ -34,6 +34,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:labelVisibilityMode="unlabeled"
+        app:itemIconTint="@drawable/bottom_nav_item_icon_selector"
         app:menu="@menu/bottom_nav_menu">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>

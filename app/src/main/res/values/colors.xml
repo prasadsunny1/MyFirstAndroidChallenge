@@ -40,6 +40,7 @@
     <color name="product_grid_item_price_text_color">@color/black</color>
 
     <!--    Others-->
-    <color name="bottom_nav_bg_color">#D34D43</color>
+    <color name="bottom_nav_selected_icon_tint">#5DB075</color>
+    <color name="bottom_nav_unselected_icon_tint">#E8E8E8</color>
 
 </resources>
