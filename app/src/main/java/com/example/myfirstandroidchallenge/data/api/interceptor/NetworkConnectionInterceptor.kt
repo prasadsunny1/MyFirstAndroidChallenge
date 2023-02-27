@@ -7,7 +7,6 @@ import okhttp3.Interceptor
 import okhttp3.Interceptor.Chain
 import okhttp3.Request
 import okhttp3.Response
-import retrofit2.Call
 import java.io.IOException
 
 class NetworkConnectionInterceptor(context: Context) : Interceptor {
