@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -24,6 +25,7 @@ class MainActivity @Inject constructor() : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setupBottomNavigation()
+        setupStatusBarColor()
         productsViewModel.onViewCreated()
         val editTextSearch = findViewById<TextInputEditText>(R.id.editTextSearch)
         editTextSearch.doAfterTextChanged { text ->
@@ -31,9 +33,12 @@ class MainActivity @Inject constructor() : AppCompatActivity() {
         }
     }
 
+    private fun setupStatusBarColor() {
+        this.window.statusBarColor = ContextCompat.getColor(this, R.color.status_bar_color)
+    }
+
     private fun setupBottomNavigation() {
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.mainContainer) as NavHostFragment
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.mainContainer) as NavHostFragment
         val navController: NavController = navHostFragment.navController
         val bottomNavigationView: BottomNavigationView =
             findViewById<View>(R.id.bottomNavigationView) as BottomNavigationView
