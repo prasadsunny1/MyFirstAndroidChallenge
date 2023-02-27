@@ -61,6 +61,7 @@ class ProductsViewModel @Inject constructor(
     /**
      * Search products
      * If $searchKeyword is null, then it will search for all products
+     * debounce search operation for 500ms
      */
     fun searchProducts(searchKeyword: String? = null) {
 

@@ -1,7 +1,5 @@
 package com.example.myfirstandroidchallenge.viewmodel
 
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import org.junit.Rule
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.myfirstandroidchallenge.MainCoroutineRule
 import com.example.myfirstandroidchallenge.data.repository.ProductRepository
@@ -9,16 +7,13 @@ import com.example.myfirstandroidchallenge.getOrAwaitValue
 import com.example.myfirstandroidchallenge.test_data.TestData
 import com.example.myfirstandroidchallenge.view.product.states.ProductLoadStates
 import com.example.myfirstandroidchallenge.view_model.ProductsViewModel
-import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
-import org.junit.After
-import org.junit.Assert
-import org.junit.Before
-import org.junit.Test
-import org.mockito.Mock
-import org.mockito.Mockito
-import org.mockito.MockitoAnnotations
+import kotlinx.coroutines.withContext
+import org.junit.*
+import org.mockito.*
 
 @OptIn(ExperimentalCoroutinesApi::class)
 internal class ProductViewModelTest {
@@ -112,11 +107,6 @@ internal class ProductViewModelTest {
 // then
             advanceUntilIdle()
 
-// First state change should be loading
-//            val firstState = productViewModel?.productLoadStates?.getOrAwaitValue()
-//            Assert.assertTrue(firstState is ProductLoadStates.Loading)
-// Second state change should be Error
-//            advanceUntilIdle()
 // then
             val finalState = productViewModel?.productLoadStates?.getOrAwaitValue()
             Assert.assertTrue(finalState is ProductLoadStates.Loaded)
@@ -139,6 +129,40 @@ internal class ProductViewModelTest {
 // Second state change should be Error
             advanceUntilIdle()
 // then
+            val finalState = productViewModel?.productLoadStates?.getOrAwaitValue()
+            Assert.assertTrue(finalState is ProductLoadStates.EmptyOrError)
+        }
+    }
+
+    @Test
+    fun `loaded state should be raised when products search is successful`() {
+        runTest(coroutineScope.testDispatcher) {
+// Given
+            Mockito.`when`(mProductRepository.getAllProductsWithReFetchIfNeeded(searchKeyword = "test"))
+                .thenReturn(TestData.ProductDOs)
+            productViewModel = ProductsViewModel(mProductRepository, coroutineScope.testDispatcher)
+// When
+            productViewModel?.searchProducts("test")
+// then
+            Thread.sleep(600L)
+            advanceUntilIdle()
+            val finalState = productViewModel?.productLoadStates?.getOrAwaitValue()
+            Assert.assertTrue(finalState is ProductLoadStates.Loaded)
+        }
+    }
+
+    @Test
+    fun `error or emty state should be raised when products search is not successful`() {
+        runTest(coroutineScope.testDispatcher) {
+// Given
+            Mockito.`when`(mProductRepository.getAllProductsWithReFetchIfNeeded(searchKeyword = "test"))
+                .thenReturn(listOf())
+            productViewModel = ProductsViewModel(mProductRepository, coroutineScope.testDispatcher)
+// When
+            productViewModel?.searchProducts("test")
+// then
+            Thread.sleep(600L)
+            advanceUntilIdle()
             val finalState = productViewModel?.productLoadStates?.getOrAwaitValue()
             Assert.assertTrue(finalState is ProductLoadStates.EmptyOrError)
         }
