@@ -59,8 +59,7 @@ class ProductsViewModel @Inject constructor(
         getProducts(true)
     }
 
-    /*
-    **
+    /**
      * Search products
      * If $searchKeyword is null, then it will search for all products
      */
