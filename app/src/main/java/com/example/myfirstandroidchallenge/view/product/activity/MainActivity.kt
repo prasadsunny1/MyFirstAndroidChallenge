@@ -24,7 +24,7 @@ class MainActivity @Inject constructor() : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setupBottomNavigation()
-
+        productsViewModel.onViewCreated()
         val editTextSearch = findViewById<TextInputEditText>(R.id.editTextSearch)
         editTextSearch.doAfterTextChanged { text ->
             productsViewModel.searchProducts(text.toString())
