@@ -1,8 +1,11 @@
 package com.example.myfirstandroidchallenge
 
 import android.content.Context
+import com.example.myfirstandroidchallenge.data.api.client.IProductHttpClient
+import com.example.myfirstandroidchallenge.data.api.client.ProductHttpClient
 import com.example.myfirstandroidchallenge.data_sources.database.ProductDatabase
-import com.example.myfirstandroidchallenge.data.api.client.ProductAPIService
+import com.example.myfirstandroidchallenge.data.api.service.ProductAPIService
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -10,6 +13,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
@@ -19,24 +23,32 @@ import javax.inject.Singleton
  */
 @Module
 @InstallIn(SingletonComponent::class)
-class AppModule {
+abstract class AppModule {
 
-    /**
-     * Creates and injects a an instance of [ProductAPIService] to HILT
-     */
-    @Provides
+    @Binds
     @Singleton
-    fun provideRetrofitInstance() = ProductAPIService.create()
+    abstract fun bindProductHttpClient(inventoryHttpClient: ProductHttpClient): IProductHttpClient
 
-    /**
-     * Creates and injects a an instance of [ProductDatabase] to HILT
-     */
-    @Provides
-    @Singleton
-    fun provideDatabaseServiceInstance(@ApplicationContext context: Context) =
-        ProductDatabase.create(context)
+    companion object {
 
-    @Provides
-    @Singleton
-    fun provideCoRoutineScope(): CoroutineDispatcher = Dispatchers.IO
+        /**
+         * Creates and injects a an instance of [ProductAPIService] to HILT
+         */
+        @Provides
+        @Singleton
+        fun provideRetrofitInstance(productHttpClient: IProductHttpClient): ProductAPIService {
+            return ProductAPIService.create(productHttpClient.buildHttpClient())
+        }
+
+        /**
+         * Creates and injects a an instance of [ProductDatabase] to HILT
+         */
+        @Provides
+        @Singleton
+        fun provideDatabaseServiceInstance(@ApplicationContext context: Context) = ProductDatabase.create(context)
+
+        @Provides
+        @Singleton
+        fun provideCoRoutineScope(): CoroutineDispatcher = Dispatchers.IO
+    }
 }

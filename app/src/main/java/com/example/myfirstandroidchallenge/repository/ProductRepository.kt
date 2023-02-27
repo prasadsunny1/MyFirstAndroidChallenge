@@ -4,8 +4,9 @@ import com.example.myfirstandroidchallenge.AppConstants
 import com.example.myfirstandroidchallenge.data_sources.database.ProductDatabase
 import com.example.myfirstandroidchallenge.data_sources.database.ProductEntity
 import com.example.myfirstandroidchallenge.data_sources.database.ProductEntityColumnNames
-import com.example.myfirstandroidchallenge.data.api.client.ProductAPIService
+import com.example.myfirstandroidchallenge.data.api.service.ProductAPIService
 import com.example.myfirstandroidchallenge.data.api.dto.ProductItemDTO
+import com.example.myfirstandroidchallenge.data.api.exception.NetworkException
 import javax.inject.Inject
 
 class ProductRepository
@@ -16,13 +17,20 @@ class ProductRepository
 
     // Get products from service and return product or throw error
     private fun getProductsFromApiAndCache(): List<ProductItemDTO>? {
-
-        val response = productAPIService.getProducts().execute()
-        if (response.errorBody() != null) {
+        try {
+            val response = productAPIService.getProducts().execute()
+            if (response.errorBody() != null) {
+                return null
+            } else {
+                saveProductsToDB(response.body()?.data?.productItems)
+                return response.body()?.data?.productItems
+            }
+        } catch (e: NetworkException) {
             return null
-        } else {
-            saveProductsToDB(response.body()?.data?.productItems)
-            return response.body()?.data?.productItems
+            // Do something with the exception
+        } catch (e: Exception) {
+            return null
+            // Do something with the exception
         }
     }
 
