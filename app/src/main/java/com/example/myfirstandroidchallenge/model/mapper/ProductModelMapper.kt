@@ -1,6 +1,5 @@
-package com.example.myfirstandroidchallenge.data.repository
+package com.example.myfirstandroidchallenge.model.mapper
 
-import com.example.myfirstandroidchallenge.model.mapper.BaseMapper
 import com.example.myfirstandroidchallenge.data.databse.entity.ProductEntity
 import com.example.myfirstandroidchallenge.data.api.dto.ProductItemDTO
 import com.example.myfirstandroidchallenge.model.ProductDO
@@ -49,7 +48,6 @@ object DoToDbEntity : BaseMapper<ProductDO, ProductEntity> {
             name = type?.name ?: "",
             extra = type?.extra ?: "",
             image = type?.image ?: "",
-            id = type?.hashCode() ?: 0,
             timestamp = System.currentTimeMillis()
         )
     }
@@ -63,7 +61,6 @@ object ApiDtoToDBEntity : BaseMapper<ProductItemDTO, ProductEntity> {
             name = type?.name ?: "",
             extra = type?.extra ?: "",
             image = type?.image ?: "",
-            id = type?.hashCode() ?: 0,
         )
     }
 }

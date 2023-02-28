@@ -16,7 +16,7 @@ import com.example.myfirstandroidchallenge.data.databse.configs.ProductDbConfig.
  */
 @Entity(tableName = TABLE_NAME)
 data class ProductEntity(
-    @PrimaryKey(autoGenerate = true) val id: Int,
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
     @ColumnInfo val name: String,
     @ColumnInfo val price: String,
     @ColumnInfo val extra: String,

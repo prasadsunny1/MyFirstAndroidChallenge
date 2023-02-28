@@ -8,6 +8,8 @@ import com.example.myfirstandroidchallenge.data.api.dto.ProductItemDTO
 import com.example.myfirstandroidchallenge.data.api.exception.NetworkException
 import com.example.myfirstandroidchallenge.data.databse.configs.ProductDbConfig.CACHE_EXPIRY_TIME
 import com.example.myfirstandroidchallenge.model.ProductDO
+import com.example.myfirstandroidchallenge.model.mapper.ApiDtoToDBEntity
+import com.example.myfirstandroidchallenge.model.mapper.DbEntityToDo
 import javax.inject.Inject
 
 class ProductRepository
