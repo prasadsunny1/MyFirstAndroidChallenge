@@ -5,9 +5,12 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.myfirstandroidchallenge.data.databse.configs.ProductDbConfig.DATABASE_NAME
-import com.example.myfirstandroidchallenge.data.databse.entity.ProductEntity
 import com.example.myfirstandroidchallenge.data.databse.dao.ProductDAO
+import com.example.myfirstandroidchallenge.data.databse.entity.ProductEntity
 
+/**
+ * Room database for the product table
+ */
 @Database(entities = [ProductEntity::class], version = 1)
 abstract class ProductDatabase : RoomDatabase() {
 

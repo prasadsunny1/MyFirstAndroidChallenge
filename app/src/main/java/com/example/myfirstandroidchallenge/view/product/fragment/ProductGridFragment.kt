@@ -15,6 +15,9 @@ import com.example.myfirstandroidchallenge.view.product.enums.ProductListKind.Gr
 import com.example.myfirstandroidchallenge.view.product.states.ProductLoadStates
 import com.example.myfirstandroidchallenge.view_model.ProductsViewModel
 
+/**
+ * Product grid fragment
+ */
 class ProductGridFragment : Fragment() {
 
     private val productsViewModel: ProductsViewModel by activityViewModels()

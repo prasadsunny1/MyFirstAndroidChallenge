@@ -1,12 +1,16 @@
 package com.example.myfirstandroidchallenge.view.product.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.myfirstandroidchallenge.R
 
+/**
+ * A simple [Fragment] subclass.
+ * used for all empty bottom navigation fragments
+ */
 class BlankFragment : Fragment() {
 
     override fun onCreateView(

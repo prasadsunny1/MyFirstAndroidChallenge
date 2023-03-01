@@ -1,5 +1,8 @@
 package com.example.myfirstandroidchallenge.data.databse.configs
 
+/**
+ * All compile time constants for the database related code
+ */
 object ProductDbConfig {
 
     const val CACHE_EXPIRY_TIME = 1 * 60 * 1000 // 1 MINUTE

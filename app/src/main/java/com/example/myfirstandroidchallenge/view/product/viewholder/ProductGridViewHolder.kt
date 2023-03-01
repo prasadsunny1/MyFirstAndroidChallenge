@@ -7,6 +7,9 @@ import com.bumptech.glide.Glide
 import com.example.myfirstandroidchallenge.databinding.ProductGridItemBinding
 import com.example.myfirstandroidchallenge.model.ProductDO
 
+/**
+ * This class is used to define the view holder for the product grid
+ */
 class ProductGridViewHolder(private var binding: ProductGridItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(p: ProductDO, ctx: Context?) {

@@ -7,6 +7,10 @@ import com.example.myfirstandroidchallenge.view.product.fragment.BlankFragment
 import com.example.myfirstandroidchallenge.view.product.fragment.ProductGridFragment
 import com.example.myfirstandroidchallenge.view.product.fragment.ProductListFragment
 
+/**
+ * This class is used to define the view pager adapter for the view pager
+ * @param activity: The activity which is using the view pager
+ */
 class ViewPagerStateAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity) {
 
     override fun getItemCount(): Int {

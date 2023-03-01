@@ -6,13 +6,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-import com.example.myfirstandroidchallenge.view_model.ProductsViewModel
 import com.example.myfirstandroidchallenge.R
 import com.example.myfirstandroidchallenge.databinding.ActivityMainBinding
 import com.example.myfirstandroidchallenge.view.product.adaptor.ViewPagerStateAdapter
+import com.example.myfirstandroidchallenge.view_model.ProductsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+/**
+ * Main activity for the app, this activity contains the bottom navigation view and the view pager with fragments
+ */
 @AndroidEntryPoint
 class MainActivity @Inject constructor() : AppCompatActivity() {
 

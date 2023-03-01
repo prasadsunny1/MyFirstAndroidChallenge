@@ -6,6 +6,9 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.http.GET
 
+/**
+ * Interface to define the API endpoints
+ */
 interface ProductAPIService {
 
     companion object Factory {

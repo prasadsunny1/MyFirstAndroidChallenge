@@ -8,11 +8,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myfirstandroidchallenge.view.product.states.ProductLoadStates
-import com.example.myfirstandroidchallenge.view_model.ProductsViewModel
 import com.example.myfirstandroidchallenge.databinding.FragmentProductListBinding
 import com.example.myfirstandroidchallenge.view.product.adaptor.ProductListAdaptor
+import com.example.myfirstandroidchallenge.view.product.states.ProductLoadStates
+import com.example.myfirstandroidchallenge.view_model.ProductsViewModel
 
+/**
+ * Product list fragment
+ */
 class ProductListFragment : Fragment() {
 
     private val productsViewModel: ProductsViewModel by activityViewModels()

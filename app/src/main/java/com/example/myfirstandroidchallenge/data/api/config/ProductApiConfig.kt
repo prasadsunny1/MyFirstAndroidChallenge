@@ -1,5 +1,8 @@
 package com.example.myfirstandroidchallenge.data.api.config
 
+/**
+ * Class to store all the API endpoints and any compile time constants that is used by api related code
+ */
 object ProductApiConfig {
 
     const val BASE_URL = "https://run.mocky.io/v3/"

@@ -9,6 +9,9 @@ import okhttp3.Request
 import okhttp3.Response
 import java.io.IOException
 
+/**
+ * Class to intercept the network connection and check if the device is connected to the internet
+ */
 class NetworkConnectionInterceptor(context: Context) : Interceptor {
 
     private val mContext: Context

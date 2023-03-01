@@ -4,6 +4,9 @@ import androidx.room.*
 import com.example.myfirstandroidchallenge.data.databse.entity.ProductEntity
 import com.example.myfirstandroidchallenge.data.databse.helpers.ProductEntityColumnNames
 
+/**
+ * DAO for the product table
+ */
 @Dao
 interface ProductDAO {
 

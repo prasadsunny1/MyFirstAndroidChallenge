@@ -10,6 +10,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.jackson.JacksonConverterFactory
 import javax.inject.Inject
 
+/**
+ * Class to build a Retrofit instance
+ */
 class ProductHttpClient @Inject constructor(@ApplicationContext private val mApplicationContext: Context) :
     IProductHttpClient {
 

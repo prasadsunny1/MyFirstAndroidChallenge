@@ -6,6 +6,9 @@ import okhttp3.Response
 import java.io.IOException
 import java.util.concurrent.TimeUnit.SECONDS
 
+/**
+ * Class to intercept the network connection and retry the request with exponential backoff
+ */
 class RetryInterceptor : Interceptor {
 
     @Throws(IOException::class)

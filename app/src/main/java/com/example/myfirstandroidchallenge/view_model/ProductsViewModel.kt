@@ -1,6 +1,9 @@
 package com.example.myfirstandroidchallenge.view_model
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.myfirstandroidchallenge.data.repository.ProductRepository
 import com.example.myfirstandroidchallenge.view.product.states.ProductLoadStates
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -10,6 +13,9 @@ import java.util.Timer
 import java.util.TimerTask
 import javax.inject.Inject
 
+/**
+ * A view model for all product related operations and states
+ */
 @HiltViewModel
 class ProductsViewModel @Inject constructor(
     private val productRepository: ProductRepository, private val coroutineScope: CoroutineDispatcher

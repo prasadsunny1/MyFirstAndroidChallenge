@@ -1,17 +1,20 @@
 package com.example.myfirstandroidchallenge.data.repository
 
+import com.example.myfirstandroidchallenge.data.api.dto.ProductItemDTO
+import com.example.myfirstandroidchallenge.data.api.exception.NetworkException
+import com.example.myfirstandroidchallenge.data.api.service.ProductAPIService
+import com.example.myfirstandroidchallenge.data.databse.configs.ProductDbConfig.CACHE_EXPIRY_TIME
 import com.example.myfirstandroidchallenge.data.databse.database.ProductDatabase
 import com.example.myfirstandroidchallenge.data.databse.entity.ProductEntity
 import com.example.myfirstandroidchallenge.data.databse.helpers.ProductEntityColumnNames
-import com.example.myfirstandroidchallenge.data.api.service.ProductAPIService
-import com.example.myfirstandroidchallenge.data.api.dto.ProductItemDTO
-import com.example.myfirstandroidchallenge.data.api.exception.NetworkException
-import com.example.myfirstandroidchallenge.data.databse.configs.ProductDbConfig.CACHE_EXPIRY_TIME
 import com.example.myfirstandroidchallenge.model.ProductDO
 import com.example.myfirstandroidchallenge.model.mapper.ApiDtoToDBEntity
 import com.example.myfirstandroidchallenge.model.mapper.DbEntityToDo
 import javax.inject.Inject
 
+/**
+ * This class is used to define the repository methods for the product table
+ */
 class ProductRepository
 @Inject constructor(
     private val productAPIService: ProductAPIService,

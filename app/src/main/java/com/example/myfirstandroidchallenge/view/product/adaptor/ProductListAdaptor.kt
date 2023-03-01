@@ -3,7 +3,6 @@ package com.example.myfirstandroidchallenge.view.product.adaptor
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myfirstandroidchallenge.databinding.ProductGridItemBinding
@@ -15,6 +14,9 @@ import com.example.myfirstandroidchallenge.view.product.enums.ProductListKind.Li
 import com.example.myfirstandroidchallenge.view.product.viewholder.ProductGridViewHolder
 import com.example.myfirstandroidchallenge.view.product.viewholder.ProductListViewHolder
 
+/**
+ * This class is used to define the recycler view adaptor for the product list
+ */
 class ProductListAdaptor(
     private val context: Context? = null, private val productListKind: ProductListKind = Linear,
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

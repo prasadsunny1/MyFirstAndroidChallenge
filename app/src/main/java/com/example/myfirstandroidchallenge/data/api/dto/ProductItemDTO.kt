@@ -2,6 +2,9 @@ package com.example.myfirstandroidchallenge.data.api.dto
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
+/**
+ * Class to store the product item data
+ */
 data class ProductItemDTO(
     @JsonProperty("name") val name: String? = null,
 
